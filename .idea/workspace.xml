@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4efa770f-be30-42b6-8be2-ea11f0cca245" name="Changes" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/btl1_dictionary/Main_Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/btl1_dictionary/Search_Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/GGTranslate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/main.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/main.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/search.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/search.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +48,17 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/ADM/OneDrive/Documents/IDEA Projects/BTL1_Dictionary/src/main/resources/com&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADM/Downloads/jar_files/controlsfx-11.1.2.jar&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.46666667&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -134,6 +135,26 @@
       <workItem from="1697027000377" duration="16000" />
       <workItem from="1697029347850" duration="505000" />
       <workItem from="1697044177110" duration="284000" />
+      <workItem from="1697077372085" duration="2025000" />
+      <workItem from="1697131818974" duration="3000" />
+      <workItem from="1697166218477" duration="84000" />
+      <workItem from="1697268383231" duration="928000" />
+      <workItem from="1697295454833" duration="2516000" />
+      <workItem from="1697303731353" duration="95000" />
+      <workItem from="1697328516408" duration="2304000" />
+      <workItem from="1697332741658" duration="44000" />
+      <workItem from="1697332913821" duration="6452000" />
+      <workItem from="1697339833089" duration="856000" />
+      <workItem from="1697370710580" duration="655000" />
+      <workItem from="1697373293792" duration="610000" />
+      <workItem from="1697376060740" duration="30000" />
+      <workItem from="1697436282206" duration="90000" />
+      <workItem from="1697438852679" duration="10000" />
+      <workItem from="1697442185732" duration="640000" />
+      <workItem from="1697451017139" duration="5999000" />
+      <workItem from="1697530559616" duration="5511000" />
+      <workItem from="1697537721056" duration="5149000" />
+      <workItem from="1697544830112" duration="1541000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -159,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697029412673</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1697077392755</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697077392755</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
