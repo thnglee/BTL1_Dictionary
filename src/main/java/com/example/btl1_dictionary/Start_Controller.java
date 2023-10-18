@@ -1,13 +1,10 @@
 package com.example.btl1_dictionary;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,9 +12,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-public class Start_Screen {
+
+public class Start_Controller {
 
     @FXML
     private VBox Start_Box;
@@ -25,9 +21,9 @@ public class Start_Screen {
     @FXML
     private ImageView Start;
     @FXML
-    private final Image curr_image = new Image("C:\\Users\\ADM\\OneDrive\\Documents\\IDEA Projects\\BTL1_Dictionary\\src\\main\\resources\\com\\example\\btl1_dictionary\\start.png");
+    private final Image curr_image = new Image(getClass().getResource("/com/example/btl1_dictionary/start.png").toExternalForm());
     @FXML
-    private final Image new_image = new Image("C:\\Users\\ADM\\OneDrive\\Documents\\IDEA Projects\\BTL1_Dictionary\\src\\main\\resources\\com\\example\\btl1_dictionary\\new_start.png");
+    private final Image new_image = new Image(getClass().getResource("/com/example/btl1_dictionary/new_start.png").toExternalForm());
 
     @FXML
     void blurButton(MouseEvent event) {

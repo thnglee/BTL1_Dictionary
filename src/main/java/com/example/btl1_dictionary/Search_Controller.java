@@ -3,17 +3,22 @@ package com.example.btl1_dictionary;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.BufferedReader;
@@ -21,10 +26,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class Search_Screen {
+public class Search_Controller {
+
+    @FXML
+    private VBox Main_Box;
 
     @FXML
     private ImageView Background;
@@ -32,29 +39,26 @@ public class Search_Screen {
     @FXML
     private ImageView Game_Button;
 
-//    @FXML
-//    private final Image Game_Image = new Image("src\\main\\resources\\com\\example\\btl1_dictionary\\Games_button.png");
+    @FXML
+    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Games_button.png").toExternalForm());
 
     @FXML
     private ImageView Google_Button;
 
-//    @FXML
-//    private final Image Google_Image = new Image("src/main/resources/com/example/btl1_dictionary/start.png");
+    @FXML
+    private final Image Google_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Google_button.png").toExternalForm());
 
     @FXML
     private ImageView History_Button;
 
-    //@FXML
-    //private final Image History_Image = new Image("src/main/resources/com/example/btl1_dictionary/new_start.png");
-
     @FXML
-    private VBox Main_Box;
+    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/History_button.png").toExternalForm());
 
     @FXML
     private ImageView Saved_Button;
 
-//    @FXML
-//    private final Image Saved_Image = new Image("src\\main\\resources\\com\\example\\btl1_dictionary\\Saved_button.png");
+    @FXML
+    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Saved_button.png").toExternalForm());
 
     @FXML
     private ImageView Search_Button;
@@ -89,7 +93,7 @@ public class Search_Screen {
 
     }
 
-    public Search_Screen() throws FileNotFoundException {
+    public Search_Controller() throws FileNotFoundException {
         try {
             readWordList(wordList);
             suggestions = FXCollections.observableArrayList(wordList);
@@ -154,45 +158,84 @@ public class Search_Screen {
         }
     }
 
-    @FXML
-    void Dragged(MouseEvent event) {
-        History_Button.setVisible(true);
-        Game_Button.setVisible(true);
-        Google_Button.setVisible(true);
-        Saved_Button.setVisible(true);
-    }
-
-    @FXML
-    void Reset(MouseEvent event) {
-        History_Button.setVisible(false);
-        Game_Button.setVisible(false);
-        Google_Button.setVisible(false);
-        Saved_Button.setVisible(false);
-    }
-
-    @FXML
-    void search(MouseEvent event) {
-
-    }
 
     @FXML
     void switchSceneToGame(MouseEvent event) {
-
+        switchScene("games.fxml",  event);
     }
 
     @FXML
     void switchSceneToGoogle(MouseEvent event) {
-
+        switchScene("google.fxml", event);
     }
 
     @FXML
-    void switchSceneToHis(MouseEvent event) {
-
+    void switchSceneToHistory(MouseEvent event) {
+        switchScene("history.fxml", event);
     }
 
     @FXML
     void switchSceneToSaved(MouseEvent event) {
-
+        switchScene("saved.fxml", event);
     }
 
+    @FXML
+    void handleSceneSwitch(MouseEvent event) {
+        ImageView clickedImageView = (ImageView) event.getSource();
+
+        if (clickedImageView == History_Button) {
+            switchSceneToHistory(event);
+        } else if (clickedImageView == Google_Button) {
+            switchSceneToGoogle(event);
+        } else if (clickedImageView == Game_Button) {
+            switchSceneToGame(event);
+        } else if (clickedImageView == Saved_Button) {
+            switchSceneToSaved(event);
+        }
+    }
+
+    @FXML
+    private void switchScene(String fxmlPath, MouseEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent fxmlLoader = FXMLLoader.load(getClass().getResource(fxmlPath));
+            Scene scene = new Scene(fxmlLoader, 900, 620);
+            stage.setTitle("3L DICTIONARY");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle the exception as needed
+        }
+    }
+
+    @FXML
+    void Entered(MouseEvent event) {
+        ImageView enteredImageView = (ImageView) event.getSource();
+
+        if (enteredImageView == History_Button) {
+            History_Button.setImage(History_Image);
+        } else if (enteredImageView == Google_Button) {
+            Google_Button.setImage(Google_Image);
+        } else if (enteredImageView == Game_Button) {
+            Game_Button.setImage(Game_Image);
+        } else if (enteredImageView == Saved_Button) {
+            Saved_Button.setImage(Saved_Image);
+        }
+    }
+
+    @FXML
+    void Exited(MouseEvent event) {
+        ImageView exitedImageView = (ImageView) event.getSource();
+
+        if (exitedImageView == History_Button) {
+            History_Button.setImage(null);
+        } else if (exitedImageView == Google_Button) {
+            Google_Button.setImage(null);
+        } else if (exitedImageView == Game_Button) {
+            Game_Button.setImage(null);
+        } else if (exitedImageView == Saved_Button) {
+            Saved_Button.setImage(null);
+        }
+    }
 }
