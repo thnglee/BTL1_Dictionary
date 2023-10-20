@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent fxmlLoader = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/sample.fxml"));
             Scene scene = new Scene(fxmlLoader, 900, 620);
             stage.setTitle("3L DICTIONARY");
             stage.setScene(scene);

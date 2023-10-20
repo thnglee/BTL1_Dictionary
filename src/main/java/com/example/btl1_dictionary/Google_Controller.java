@@ -5,11 +5,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLEncoder;
 
 public class Google_Controller {
 
@@ -23,45 +32,106 @@ public class Google_Controller {
     private ImageView Game_Button;
 
     @FXML
-    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Games_button.png").toExternalForm());
+    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Games_button.png").toExternalForm());
 
     @FXML
     private ImageView History_Button;
 
     @FXML
-    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/History_button.png").toExternalForm());
+    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/History_button.png").toExternalForm());
 
     @FXML
     private ImageView Saved_Button;
 
     @FXML
-    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Saved_button.png").toExternalForm());
+    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Saved_button.png").toExternalForm());
 
     @FXML
     private ImageView Search_Button;
 
     @FXML
-    private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Search_button.png").toExternalForm());
+    private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Search_button.png").toExternalForm());
 
+    @FXML
+    private TextArea input;
+
+    @FXML
+    private TextArea output;
+
+    @FXML
+    private Button translate_icon;
+
+    public static <ObjectMapper> String ConnecttoGGAPI(String input) {
+        String ans ="";
+        try {
+            // Xác định URL
+            if (input.isEmpty()) return "";
+            String quencode = URLEncoder.encode(input, "UTF-8");
+            String apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=";
+            apiUrl += quencode;
+            // Tạo URL object
+            URI uri = new URI(apiUrl);
+            URL url = uri.toURL();
+            // Tạo kết nối HTTP
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            // Đọc phản hồi từ API
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            StringBuilder responseContent = new StringBuilder();
+
+            while ((line = reader.readLine()) != null) {
+                responseContent.append(line);
+                responseContent.append("\n");
+            }
+            reader.close();
+            String result = responseContent.toString();
+
+
+            int  i = 0;
+            while(result.charAt(i) != '"') {
+                i++;
+            }
+            i++;
+            while (result.charAt(i) != '"') {
+                ans += result.charAt(i);
+                i++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        ans = ans.replace("\\n", "\n");
+        return ans;
+    }
+
+    @FXML
+    void translate(MouseEvent event) {
+        String in = input.getText();
+        String res = ConnecttoGGAPI(in);
+        output.setText(res);
+    }
 
     @FXML
     void switchSceneToGame(MouseEvent event) {
-        switchScene("games.fxml",  event);
+        switchScene("FXML File/games.fxml",  event);
     }
 
     @FXML
     void switchSceneToHistory(MouseEvent event) {
-        switchScene("history.fxml", event);
+        switchScene("FXML File/history.fxml", event);
     }
 
     @FXML
     void switchSceneToSearch(MouseEvent event) {
-        switchScene("search.fxml", event);
+        switchScene("FXML File/search.fxml", event);
     }
 
     @FXML
     void switchSceneToSaved(MouseEvent event) {
-        switchScene("saved.fxml", event);
+        switchScene("FXML File/saved.fxml", event);
     }
 
     @FXML
@@ -123,5 +193,6 @@ public class Google_Controller {
             Saved_Button.setImage(null);
         }
     }
+
 
 }

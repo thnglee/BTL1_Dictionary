@@ -21,12 +21,14 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Search_Controller {
 
@@ -40,25 +42,25 @@ public class Search_Controller {
     private ImageView Game_Button;
 
     @FXML
-    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Games_button.png").toExternalForm());
+    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Games_button.png").toExternalForm());
 
     @FXML
     private ImageView Google_Button;
 
     @FXML
-    private final Image Google_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Google_button.png").toExternalForm());
+    private final Image Google_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Google_button.png").toExternalForm());
 
     @FXML
     private ImageView History_Button;
 
     @FXML
-    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/History_button.png").toExternalForm());
+    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/History_button.png").toExternalForm());
 
     @FXML
     private ImageView Saved_Button;
 
     @FXML
-    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Saved_button.png").toExternalForm());
+    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Saved_button.png").toExternalForm());
 
     @FXML
     private ImageView Search_Button;
@@ -161,22 +163,22 @@ public class Search_Controller {
 
     @FXML
     void switchSceneToGame(MouseEvent event) {
-        switchScene("games.fxml",  event);
+        switchScene("FXML File/games.fxml",  event);
     }
 
     @FXML
     void switchSceneToGoogle(MouseEvent event) {
-        switchScene("google.fxml", event);
+        switchScene("FXML File/google.fxml", event);
     }
 
     @FXML
     void switchSceneToHistory(MouseEvent event) {
-        switchScene("history.fxml", event);
+        switchScene("FXML File/history.fxml", event);
     }
 
     @FXML
     void switchSceneToSaved(MouseEvent event) {
-        switchScene("saved.fxml", event);
+        switchScene("FXML File/saved.fxml", event);
     }
 
     @FXML
@@ -238,4 +240,6 @@ public class Search_Controller {
             Saved_Button.setImage(null);
         }
     }
+
+
 }

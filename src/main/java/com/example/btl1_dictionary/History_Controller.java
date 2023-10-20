@@ -23,45 +23,45 @@ public class History_Controller {
     private ImageView Game_Button;
 
     @FXML
-    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Games_button.png").toExternalForm());
+    private final Image Game_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Games_button.png").toExternalForm());
 
     @FXML
     private ImageView Google_Button;
 
     @FXML
-    private final Image Google_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Google_button.png").toExternalForm());
+    private final Image Google_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Google_button.png").toExternalForm());
 
     @FXML
     private ImageView Saved_Button;
 
     @FXML
-    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Saved_button.png").toExternalForm());
+    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Saved_button.png").toExternalForm());
 
     @FXML
     private ImageView Search_Button;
 
     @FXML
-    private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Search_button.png").toExternalForm());
+    private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Search_button.png").toExternalForm());
 
 
     @FXML
     void switchSceneToGame(MouseEvent event) {
-        switchScene("games.fxml",  event);
+        switchScene("FXML File/games.fxml",  event);
     }
 
     @FXML
     void switchSceneToGoogle(MouseEvent event) {
-        switchScene("google.fxml", event);
+        switchScene("FXML File/google.fxml", event);
     }
 
     @FXML
     void switchSceneToSearch(MouseEvent event) {
-        switchScene("search.fxml", event);
+        switchScene("FXML File/search.fxml", event);
     }
 
     @FXML
     void switchSceneToSaved(MouseEvent event) {
-        switchScene("saved.fxml", event);
+        switchScene("FXML File/saved.fxml", event);
     }
 
     @FXML

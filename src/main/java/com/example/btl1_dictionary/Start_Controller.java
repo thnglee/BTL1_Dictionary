@@ -21,9 +21,9 @@ public class Start_Controller {
     @FXML
     private ImageView Start;
     @FXML
-    private final Image curr_image = new Image(getClass().getResource("/com/example/btl1_dictionary/start.png").toExternalForm());
+    private final Image curr_image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/start.png").toExternalForm());
     @FXML
-    private final Image new_image = new Image(getClass().getResource("/com/example/btl1_dictionary/new_start.png").toExternalForm());
+    private final Image new_image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/new_start.png").toExternalForm());
 
     @FXML
     void blurButton(MouseEvent event) {
@@ -45,7 +45,7 @@ public class Start_Controller {
     public void switchToScene2(MouseEvent event) throws IOException {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent fxmlLoader = FXMLLoader.load(getClass().getResource("search.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/search.fxml"));
             Scene scene = new Scene(fxmlLoader, 900, 620);
             stage.setTitle("3L DICTIONARY");
             stage.setScene(scene);
