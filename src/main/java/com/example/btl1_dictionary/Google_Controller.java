@@ -14,11 +14,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
 
 public class Google_Controller {
 
@@ -53,65 +52,70 @@ public class Google_Controller {
     private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Search_button.png").toExternalForm());
 
     @FXML
+    private ImageView langFrom;
+
+    @FXML
+    private final Image Vie = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Vietnam_Button.png").toExternalForm());
+
+    @FXML
+    private ImageView langTo;
+
+    @FXML
+    private final Image Eng = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/English_Button.png").toExternalForm());
+
+    @FXML
     private TextArea input;
 
     @FXML
     private TextArea output;
 
     @FXML
-    private Button translate_icon;
+    private ImageView Switch_Button;
 
-    public static <ObjectMapper> String ConnecttoGGAPI(String input) {
-        String ans ="";
-        try {
-            // Xác định URL
-            if (input.isEmpty()) return "";
-            String quencode = URLEncoder.encode(input, "UTF-8");
-            String apiUrl = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=";
-            apiUrl += quencode;
-            // Tạo URL object
-            URI uri = new URI(apiUrl);
-            URL url = uri.toURL();
-            // Tạo kết nối HTTP
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            // Đọc phản hồi từ API
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String line;
-            StringBuilder responseContent = new StringBuilder();
+    @FXML
+    private Button Translate_Button;
 
-            while ((line = reader.readLine()) != null) {
-                responseContent.append(line);
-                responseContent.append("\n");
-            }
-            reader.close();
-            String result = responseContent.toString();
+    private boolean checked = true;
 
+    private static String ConnectToGGAPI( String input, String langFrom, String langTo) throws IOException, IOException {
+        String urlSource = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
+                        + "?q=" + URLEncoder.encode(input, "UTF-8")
+                        + "&target=" + langTo
+                        + "&source=" + langFrom;
+        URL url = new URL(urlSource);
 
-            int  i = 0;
-            while(result.charAt(i) != '"') {
-                i++;
-            }
-            i++;
-            while (result.charAt(i) != '"') {
-                ans += result.charAt(i);
-                i++;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        BufferedReader bf = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+        StringBuilder res = new StringBuilder();
+        String line;
+        while ((line = bf.readLine()) != null) {
+            res.append(line);
+            res.append("\n");
         }
-
-
-        ans = ans.replace("\\n", "\n");
-        return ans;
+        bf.close();
+        return res.toString();
     }
 
     @FXML
-    void translate(MouseEvent event) {
+    void translate(MouseEvent event) throws IOException {
         String in = input.getText();
-        String res = ConnecttoGGAPI(in);
+        String res = (checked) ? ConnectToGGAPI(in, "en", "vi") : ConnectToGGAPI(in, "vi", "en");
         output.setText(res);
+    }
+
+    @FXML
+    void switchLanguage(MouseEvent event) {
+        if (checked) {
+            checked = false;
+            langFrom.setImage(Vie);
+            langTo.setImage(Eng);
+        }
+        else {
+            checked = true;
+            langFrom.setImage(Eng);
+            langTo.setImage(Vie);
+        }
     }
 
     @FXML
