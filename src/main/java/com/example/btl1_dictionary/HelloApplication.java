@@ -22,8 +22,8 @@ public class HelloApplication extends Application {
             // Handle the exception as needed
         }
     }
-
     public static void main(String[] args) {
+
         launch(args);
     }
 }

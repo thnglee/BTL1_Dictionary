@@ -13,11 +13,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.*;
 import java.net.*;
-import java.nio.charset.StandardCharsets;
 
 public class Google_Controller {
 
@@ -63,6 +63,16 @@ public class Google_Controller {
     @FXML
     private final Image Eng = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/English_Button.png").toExternalForm());
 
+
+    @FXML
+    private ImageView voice_from;
+
+    @FXML
+    private ImageView voice_to;
+
+    @FXML
+    private final Image Voice_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Voice_Button.png").toExternalForm());
+
     @FXML
     private TextArea input;
 
@@ -75,13 +85,16 @@ public class Google_Controller {
     @FXML
     private Button Translate_Button;
 
+    @FXML
+    private Button Voice_Button;
+
     private boolean checked = true;
 
-    private static String ConnectToGGAPI( String input, String langFrom, String langTo) throws IOException, IOException {
+    private static String ConnectToGGAPI( String input, String languageFrom, String languageTo) throws IOException, IOException {
         String urlSource = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
                         + "?q=" + URLEncoder.encode(input, "UTF-8")
-                        + "&target=" + langTo
-                        + "&source=" + langFrom;
+                        + "&target=" + languageTo
+                        + "&source=" + languageFrom;
         URL url = new URL(urlSource);
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -100,9 +113,59 @@ public class Google_Controller {
     @FXML
     void translate(MouseEvent event) throws IOException {
         String in = input.getText();
+        voice_from.setImage(Voice_Image);
+        voice_to.setImage(Voice_Image);
         String res = (checked) ? ConnectToGGAPI(in, "en", "vi") : ConnectToGGAPI(in, "vi", "en");
         output.setText(res);
     }
+
+    @FXML
+    void Voice_gg(MouseEvent event) throws IOException {
+        ImageView clickedImageView = (ImageView) event.getSource();
+
+        if (clickedImageView == voice_from) {
+            playSound(input.getText(),checked);
+        } else if (clickedImageView == voice_to) {
+            playSound(output.getText().trim(),!checked);
+        }
+    }
+
+    static void playSound(String in, boolean check) {
+        try {
+            String tmp = in.replace(" ", "%20");
+            tmp = tmp.replace("\n", "%20");
+            String apiUrl = (check) ? "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=en-us&v=Chi&src="
+                                    : "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=vi-vn&v=Odai&src=";
+            apiUrl += tmp;
+            URI uri = new URI(apiUrl);
+            URL url = uri.toURL();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            InputStream inputStream = connection.getInputStream();
+            byte[] data = inputStream.readAllBytes();
+
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(byteArrayInputStream);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+
+            clip.start();
+
+            Thread.sleep(clip.getMicrosecondLength() / 1000);
+
+            clip.close();
+            audioInputStream.close();
+            byteArrayInputStream.close();
+            inputStream.close();
+            connection.disconnect();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void switchLanguage(MouseEvent event) {

@@ -7,28 +7,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
+import java.net.*;
+
 
 public class Search_Controller {
 
@@ -66,13 +66,22 @@ public class Search_Controller {
     private ImageView Search_Button;
 
     @FXML
-    private ListView<String> listView;
-
-    @FXML
     private TextField searchBar;
 
     @FXML
-    private Button searchButton;
+    private ImageView voice;
+
+    @FXML
+    private final Image Voice_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Voice_Button.png").toExternalForm());
+
+    @FXML
+    private WebView meaning;
+
+    @FXML
+    private ListView<String> suggestion;
+
+    @FXML
+    private ImageView searchButton;
 
     private ObservableList<String> suggestions;
 
@@ -96,6 +105,7 @@ public class Search_Controller {
     }
 
     public Search_Controller() throws FileNotFoundException {
+
         try {
             readWordList(wordList);
             suggestions = FXCollections.observableArrayList(wordList);
@@ -108,13 +118,18 @@ public class Search_Controller {
     @FXML
     public void initialize(KeyEvent event) {
 
-        listView.setCellFactory(new CustomListCellFactory());
+        suggestion.setCellFactory(new CustomListCellFactory());
 
-        listView.setItems(suggestions);
+        suggestion.setItems(suggestions);
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             showSuggestions(newValue);
         });
+
+        if (event.getCode() == KeyCode.BACK_SPACE || event.getCode() == KeyCode.DELETE) {
+            String currentValue = searchBar.getText();
+            showSuggestions(currentValue);
+        }
     }
 
     private void showSuggestions(String input) {
@@ -138,7 +153,7 @@ public class Search_Controller {
         filteredSuggestions.addAll(matchingPrefixSuggestions);
         filteredSuggestions.addAll(nonMatchingSuggestions);
 
-        listView.setItems(filteredSuggestions);
+        suggestion.setItems(filteredSuggestions);
     }
 
     public static class CustomListCellFactory implements Callback<ListView<String>, ListCell<String>> {
@@ -153,10 +168,69 @@ public class Search_Controller {
                         setText(null);
                     } else {
                         setText(item);
-                        setFont(Font.font("Arial", FontWeight.BOLD, 20));
+                        setFont(Font.font("Arial", FontWeight.BOLD, 15));
                     }
                 }
             };
+        }
+    }
+
+    @FXML
+    void search(MouseEvent event) throws Exception {
+        String input = searchBar.getText();
+        voice.setImage(Voice_Image);
+        int size = input.length();
+        boolean found = false;
+        boolean checked = false;
+        meaning.getEngine().loadContent(Database_Controller.GetWordFromDatabase(input), "text/html");
+    }
+
+    @FXML
+    void Voice(MouseEvent event) {
+        try {
+            String apiRe = searchBar.getText();
+            String tmp = apiRe.replace(" ", "%20");
+            String apiUrl = "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=en-us&v=Odai&src=";
+            apiUrl += tmp;
+
+            URI uri = new URI(apiUrl);
+            URL url = uri.toURL();
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            InputStream inputStream = connection.getInputStream();
+            byte[] data = inputStream.readAllBytes();
+
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(byteArrayInputStream);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+
+            clip.start();
+
+            Thread.sleep(clip.getMicrosecondLength() / 1000);
+
+            clip.close();
+            audioInputStream.close();
+            byteArrayInputStream.close();
+            inputStream.close();
+            connection.disconnect();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void Fill(MouseEvent event) {
+        int selectedIndex = suggestion.getSelectionModel().getSelectedIndex();
+
+        if (selectedIndex >= 0) {
+            String selectedItem = suggestion.getItems().get(selectedIndex);
+            searchBar.setText(selectedItem);
         }
     }
 
