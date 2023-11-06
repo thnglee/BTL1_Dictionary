@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,9 +29,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.net.*;
+import java.util.ResourceBundle;
+
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 
 
-public class Search_Controller {
+public class Search_Controller implements Initializable {
 
     @FXML
     private VBox Main_Box;
@@ -156,6 +161,11 @@ public class Search_Controller {
         suggestion.setItems(filteredSuggestions);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
     public static class CustomListCellFactory implements Callback<ListView<String>, ListCell<String>> {
         @Override
         public ListCell<String> call(ListView<String> param) {
@@ -178,50 +188,86 @@ public class Search_Controller {
     @FXML
     void search(MouseEvent event) throws Exception {
         String input = searchBar.getText();
+        String path = "src/main/resources/com/example/btl1_dictionary/History.txt";
+
+        List<String> lines = new ArrayList<>();
+        String line = "";
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        while ((line = br.readLine()) != null) {
+            if (!line.isEmpty()) {
+                lines.add(line.trim());
+            }
+         }
+        br.close();
+
+        int size = lines.size();
+        int MAX_LENGTH = 30;
+        if (size > MAX_LENGTH) {
+            while (size >= MAX_LENGTH) {
+                lines.remove(size-1);
+                size--;
+            }
+        }
+        lines.removeIf(e -> e.equals(input));
+        lines.add(0, input);
+
+        FileWriter fw = new FileWriter(path);
+        for (String lineToWrite : lines) {
+            fw.write(lineToWrite);
+            fw.write("\n");
+        }
+        fw.close();
+
         voice.setImage(Voice_Image);
-        int size = input.length();
-        boolean found = false;
-        boolean checked = false;
         meaning.getEngine().loadContent(Database_Controller.GetWordFromDatabase(input), "text/html");
     }
 
     @FXML
     void Voice(MouseEvent event) {
-        try {
-            String apiRe = searchBar.getText();
-            String tmp = apiRe.replace(" ", "%20");
-            String apiUrl = "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=en-us&v=Odai&src=";
-            apiUrl += tmp;
-
-            URI uri = new URI(apiUrl);
-            URL url = uri.toURL();
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-
-            InputStream inputStream = connection.getInputStream();
-            byte[] data = inputStream.readAllBytes();
-
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
-
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(byteArrayInputStream);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-
-            clip.start();
-
-            Thread.sleep(clip.getMicrosecondLength() / 1000);
-
-            clip.close();
-            audioInputStream.close();
-            byteArrayInputStream.close();
-            inputStream.close();
-            connection.disconnect();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        Voice voice;
+        VoiceManager voiceManager = VoiceManager.getInstance();
+        voice = voiceManager.getVoice("kevin16");
+        if (voice == null) {
+            System.err.println("Cannot find a voice named kevin16.");
         }
+        voice.allocate();
+        String text = searchBar.getText();
+        voice.speak(text);
+//        try {
+//            String apiRe = searchBar.getText();
+//            String tmp = apiRe.replace(" ", "%20");
+//            String apiUrl = "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=en-us&v=Odai&src=";
+//            apiUrl += tmp;
+//
+//            URI uri = new URI(apiUrl);
+//            URL url = uri.toURL();
+//
+//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//            connection.setRequestMethod("GET");
+//
+//            InputStream inputStream = connection.getInputStream();
+//            byte[] data = inputStream.readAllBytes();
+//
+//            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+//
+//            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(byteArrayInputStream);
+//            Clip clip = AudioSystem.getClip();
+//            clip.open(audioInputStream);
+//
+//            clip.start();
+//
+//            Thread.sleep(clip.getMicrosecondLength() / 1000);
+//
+//            clip.close();
+//            audioInputStream.close();
+//            byteArrayInputStream.close();
+//            inputStream.close();
+//            connection.disconnect();
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     @FXML

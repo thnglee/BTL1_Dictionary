@@ -5,11 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class History_Controller {
 
@@ -42,6 +48,130 @@ public class History_Controller {
 
     @FXML
     private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Search_button.png").toExternalForm());
+
+    @FXML
+    private TextField word1;
+
+    @FXML
+    private TextField word10;
+
+    @FXML
+    private TextField word2;
+
+    @FXML
+    private TextField word3;
+
+    @FXML
+    private TextField word4;
+
+    @FXML
+    private TextField word5;
+
+    @FXML
+    private TextField word6;
+
+    @FXML
+    private TextField word7;
+
+    @FXML
+    private TextField word8;
+
+    @FXML
+    private TextField word9;
+
+    public void initialize() throws IOException {
+        try {
+            String path = "src/main/resources/com/example/btl1_dictionary/History.txt";
+            BufferedReader bf = new BufferedReader(new FileReader(path));
+            String line = "";
+            int count = 0;
+            List<String> list = new ArrayList<String>();
+            while ((line = bf.readLine()) != null && count <= 10) {
+                list.add(line.trim());
+                count++;
+            }
+            bf.close();
+
+            int size = list.size();
+            if (size < 10) {
+                int tmp = 10 - size;
+                while (tmp > 0) {
+                    list.add(" ");
+                    tmp--;
+                }
+            }
+            word1.setText(list.get(0));
+            word2.setText(list.get(1));
+            word3.setText(list.get(2));
+            word4.setText(list.get(3));
+            word5.setText(list.get(4));
+            word6.setText(list.get(5));
+            word7.setText(list.get(6));
+            word8.setText(list.get(7));
+            word9.setText(list.get(8));
+            word10.setText(list.get(9));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void entered(MouseEvent event) {
+        TextField entered = (TextField) event.getSource();
+        Font font = Font.font("Segoe UI Black",24);
+        if (entered == word1) {
+            word1.setFont(font);
+        } else if (entered == word2) {
+            word2.setFont(font);
+        } else if (entered == word3) {
+            word3.setFont(font);
+        } else if (entered == word4) {
+            word4.setFont(font);
+        } else if (entered == word5) {
+            word5.setFont(font);
+        } else if (entered == word6) {
+            word6.setFont(font);
+        } else if (entered == word7) {
+            word7.setFont(font);
+        } else if (entered == word8) {
+            word8.setFont(font);
+        } else if (entered == word9) {
+            word9.setFont(font);
+        } else if (entered == word10) {
+            word10.setFont(font);
+        }
+    }
+
+    @FXML
+    void attempt(MouseEvent event) throws Exception {
+    }
+
+    @FXML
+    void exited(MouseEvent event) {
+        TextField exited = (TextField) event.getSource();
+        Font font = Font.font("Segoe UI",20);
+        if (exited == word1) {
+            word1.setFont(font);
+        } else if (exited == word2) {
+            word2.setFont(font);
+        } else if (exited == word3) {
+            word3.setFont(font);
+        } else if (exited == word4) {
+            word4.setFont(font);
+        } else if (exited == word5) {
+            word5.setFont(font);
+        } else if (exited == word6) {
+            word6.setFont(font);
+        } else if (exited == word7) {
+            word7.setFont(font);
+        } else if (exited == word8) {
+            word8.setFont(font);
+        } else if (exited == word9) {
+            word9.setFont(font);
+        } else if (exited == word10) {
+            word10.setFont(font);
+        }
+    }
 
 
     @FXML
@@ -90,7 +220,6 @@ public class History_Controller {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception as needed
         }
     }
 
@@ -123,5 +252,4 @@ public class History_Controller {
             Saved_Button.setImage(null);
         }
     }
-
 }

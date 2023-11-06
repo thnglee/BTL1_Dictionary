@@ -5,6 +5,7 @@ module com.example.btl1_dictionary {
     requires org.xerial.sqlitejdbc;
     requires java.desktop;
     requires javafx.web;
+    requires freetts;
 
 
     opens com.example.btl1_dictionary to javafx.fxml;

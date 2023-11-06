@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
@@ -100,21 +101,39 @@
                   <Image url="@../Image/Search_button.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="History_Button" fitHeight="100.0" fitWidth="100.0" layoutY="198.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Google_Button" fitHeight="100.0" fitWidth="100.0" layoutY="297.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Game_Button" fitHeight="100.0" fitWidth="100.0" layoutY="396.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Saved_Button" fitHeight="100.0" fitWidth="100.0" layoutY="496.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="History_Button" fitHeight="100.0" fitWidth="100.0" layoutY="198.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Google_Button" fitHeight="100.0" fitWidth="100.0" layoutY="297.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Game_Button" fitHeight="100.0" fitWidth="100.0" layoutY="396.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Saved_Button" fitHeight="100.0" fitWidth="100.0" layoutY="496.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
             <TextField fx:id="searchBar" layoutX="112.0" layoutY="132.0" onKeyPressed="#initialize" prefHeight="52.0" prefWidth="237.0" promptText="Type the word....">
                <font>
                   <Font name="Dubai Medium" size="20.0" />
                </font></TextField>
             <ListView fx:id="suggestion" layoutX="111.0" layoutY="209.0" onMouseClicked="#Fill" prefHeight="376.0" prefWidth="238.0" />
             <WebView fx:id="meaning" blendMode="DARKEN" layoutX="420.0" layoutY="117.0" prefHeight="460.0" prefWidth="459.0" />
-            <ImageView fx:id="voice" fitHeight="32.0" fitWidth="42.0" layoutX="380.0" layoutY="180.0" onMouseClicked="#Voice" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="voice" fitHeight="32.0" fitWidth="42.0" layoutX="380.0" layoutY="180.0" onMouseClicked="#Voice" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
             <ImageView fx:id="searchButton" fitHeight="41.0" fitWidth="80.0" layoutX="302.0" layoutY="138.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Search_icon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
     </AnchorPane>

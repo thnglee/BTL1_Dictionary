@@ -69,9 +69,14 @@ public class Database_Controller {
                 Word w = new Word(id, word, meaning, pro);
                 words.add(w);
             }
-
+            boolean first = true;
             for (Word w : words) {
-                res.append(w.meaning);
+                if (first) {
+                    res.append(w.meaning);
+                    first = false;
+                    continue;
+                }
+                res.append(w.meaning.substring(16 + w.word.length()));
             }
 
         } catch (Exception e) {
