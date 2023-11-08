@@ -37,8 +37,11 @@ public class Database_Controller {
 
     static Connection connection = null;
 
+    static boolean found = true;
+
     public static String GetWordFromDatabase(String input) throws Exception {
         StringBuilder res = new StringBuilder();
+        String noMatchingResult = "<h1></h1><h3><i>Xin lỗi , Không có kết quả phù hợp nội dung bạn tìm kiếm !";
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -50,7 +53,7 @@ public class Database_Controller {
         List<Word> words = new ArrayList<>();
 
         try (Connection connection1 = DriverManager.getConnection(
-                "jdbc:sqlite:C:\\Users\\ADM\\OneDrive\\Documents\\IDEA Projects\\BTL1_Dictionary\\src\\main\\resources\\com\\example\\btl1_dictionary\\Database\\dict_hh.db");) {
+                "jdbc:sqlite:src/main/resources/com/example/btl1_dictionary/Database/dict_hh.db");) {
             if (connection1 != null) {
                 connection = connection1;
             }
@@ -69,6 +72,11 @@ public class Database_Controller {
                 Word w = new Word(id, word, meaning, pro);
                 words.add(w);
             }
+            if (words.isEmpty()) {
+                found = false;
+                return noMatchingResult;
+            }
+            found = true;
             boolean first = true;
             for (Word w : words) {
                 if (first) {
@@ -84,7 +92,5 @@ public class Database_Controller {
         }
         return res.toString();
     }
-
-
 }
 

@@ -79,6 +79,7 @@ public class History_Controller {
     @FXML
     private TextField word9;
 
+
     public void initialize() throws IOException {
         try {
             String path = "src/main/resources/com/example/btl1_dictionary/History.txt";
@@ -100,6 +101,7 @@ public class History_Controller {
                     tmp--;
                 }
             }
+
             word1.setText(list.get(0));
             word2.setText(list.get(1));
             word3.setText(list.get(2));
@@ -118,7 +120,7 @@ public class History_Controller {
     @FXML
     void entered(MouseEvent event) {
         TextField entered = (TextField) event.getSource();
-        Font font = Font.font("Segoe UI Black",24);
+        Font font = Font.font("Segoe UI Black",20);
         if (entered == word1) {
             word1.setFont(font);
         } else if (entered == word2) {
@@ -143,13 +145,46 @@ public class History_Controller {
     }
 
     @FXML
-    void attempt(MouseEvent event) throws Exception {
+    void attempted(MouseEvent event) throws Exception {
+        TextField attempted = (TextField) event.getSource();
+        String res= "";
+        if (attempted == word1) {
+            res = word1.getText();
+        } else if (attempted == word2) {
+            res = word2.getText();
+        } else if (attempted == word3) {
+            res = word3.getText();
+        } else if (attempted == word4) {
+            res = word4.getText();
+        } else if (attempted == word5) {
+            res = word5.getText();
+        } else if (attempted == word6) {
+            res = word6.getText();
+        } else if (attempted == word7) {
+            res = word7.getText();
+        } else if (attempted == word8) {
+            res = word8.getText();
+        } else if (attempted == word9) {
+            res = word9.getText();
+        } else if (attempted == word10) {
+            res = word10.getText();
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML File/search.fxml"));
+        Parent fxmlLoader = loader.load();
+        ((Search_Controller) loader.getController()).getSearchBar().setText(res);
+        ((Search_Controller) loader.getController()).search(event);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader, 900, 620);
+        stage.setTitle("3L DICTIONARY");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void exited(MouseEvent event) {
         TextField exited = (TextField) event.getSource();
-        Font font = Font.font("Segoe UI",20);
+        Font font = Font.font("Segoe UI Emoji",20);
         if (exited == word1) {
             word1.setFont(font);
         } else if (exited == word2) {

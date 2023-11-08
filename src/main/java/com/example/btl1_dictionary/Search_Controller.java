@@ -71,7 +71,7 @@ public class Search_Controller implements Initializable {
     private ImageView Search_Button;
 
     @FXML
-    private TextField searchBar;
+    public TextField searchBar;
 
     @FXML
     private ImageView voice;
@@ -107,6 +107,10 @@ public class Search_Controller implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+    public TextField getSearchBar() {
+        return searchBar;
     }
 
     public Search_Controller() throws FileNotFoundException {
@@ -187,39 +191,44 @@ public class Search_Controller implements Initializable {
 
     @FXML
     void search(MouseEvent event) throws Exception {
-        String input = searchBar.getText();
+        String input = searchBar.getText().toLowerCase();
         String path = "src/main/resources/com/example/btl1_dictionary/History.txt";
 
-        List<String> lines = new ArrayList<>();
-        String line = "";
-        BufferedReader br = new BufferedReader(new FileReader(path));
-        while ((line = br.readLine()) != null) {
-            if (!line.isEmpty()) {
-                lines.add(line.trim());
-            }
-         }
-        br.close();
-
-        int size = lines.size();
-        int MAX_LENGTH = 30;
-        if (size > MAX_LENGTH) {
-            while (size >= MAX_LENGTH) {
-                lines.remove(size-1);
-                size--;
-            }
-        }
-        lines.removeIf(e -> e.equals(input));
-        lines.add(0, input);
-
-        FileWriter fw = new FileWriter(path);
-        for (String lineToWrite : lines) {
-            fw.write(lineToWrite);
-            fw.write("\n");
-        }
-        fw.close();
-
-        voice.setImage(Voice_Image);
+        String html = Database_Controller.GetWordFromDatabase(input);
         meaning.getEngine().loadContent(Database_Controller.GetWordFromDatabase(input), "text/html");
+
+        if (!Database_Controller.found) {
+            voice.setImage(null);
+        } else {
+            voice.setImage(Voice_Image);
+            List<String> lines = new ArrayList<>();
+            String line = "";
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            while ((line = br.readLine()) != null) {
+                if (!line.isEmpty()) {
+                    lines.add(line.trim());
+                }
+            }
+            br.close();
+
+            int size = lines.size();
+            int MAX_LENGTH = 30;
+            if (size > MAX_LENGTH) {
+                while (size >= MAX_LENGTH) {
+                    lines.remove(size - 1);
+                    size--;
+                }
+            }
+            lines.removeIf(e -> e.equals(input));
+            lines.add(0, input);
+
+            FileWriter fw = new FileWriter(path);
+            for (String lineToWrite : lines) {
+                fw.write(lineToWrite);
+                fw.write("\n");
+            }
+            fw.close();
+        }
     }
 
     @FXML
