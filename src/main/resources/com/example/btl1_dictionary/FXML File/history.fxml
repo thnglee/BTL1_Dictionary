@@ -177,7 +177,13 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="395.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="remove1" fitHeight="33.0" fitWidth="24.0" layoutX="395.0" layoutY="207.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
             <TextField fx:id="word2" accessibleRole="BUTTON" blendMode="DARKEN" editable="false" layoutX="228.0" layoutY="276.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="26.0" prefWidth="161.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
@@ -250,15 +256,78 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="395.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="395.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="395.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="395.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="763.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="763.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="763.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="763.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="763.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="remove2" fitHeight="33.0" fitWidth="24.0" layoutX="395.0" layoutY="286.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove3" fitHeight="33.0" fitWidth="24.0" layoutX="395.0" layoutY="365.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove4" fitHeight="33.0" fitWidth="24.0" layoutX="395.0" layoutY="441.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove5" fitHeight="33.0" fitWidth="24.0" layoutX="395.0" layoutY="520.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove6" fitHeight="33.0" fitWidth="24.0" layoutX="764.0" layoutY="207.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove7" fitHeight="33.0" fitWidth="24.0" layoutX="764.0" layoutY="280.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove8" fitHeight="33.0" fitWidth="24.0" layoutX="764.0" layoutY="365.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove9" fitHeight="33.0" fitWidth="24.0" layoutX="764.0" layoutY="441.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="remove10" fitHeight="33.0" fitWidth="24.0" layoutX="764.0" layoutY="520.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/History_icon/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
     </AnchorPane>
   </children>

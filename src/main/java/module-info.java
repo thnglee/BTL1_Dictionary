@@ -6,6 +6,7 @@ module com.example.btl1_dictionary {
     requires java.desktop;
     requires javafx.web;
     requires freetts;
+    requires simplecaptcha;
 
 
     opens com.example.btl1_dictionary to javafx.fxml;

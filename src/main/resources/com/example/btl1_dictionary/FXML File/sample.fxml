@@ -41,7 +41,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="Start_Box" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Start_Controller">
+<VBox fx:id="Start_Box" prefHeight="650.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Start_Controller">
   <children>
     <MenuBar prefHeight="43.0" prefWidth="900.0" VBox.vgrow="NEVER">
       <menus>
@@ -84,7 +84,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" onMouseEntered="#blurButton" onMouseExited="#resetButton" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="605.0" fitWidth="900.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="650.0" fitWidth="875.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/background.png" />
                </image>

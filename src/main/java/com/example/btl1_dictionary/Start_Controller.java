@@ -1,10 +1,12 @@
 package com.example.btl1_dictionary;
 
+import cn.apiclub.captcha.Captcha;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,6 +16,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Start_Controller {
+
+    private Captcha captcha;
+    private TextField captchaInput;
+    private ImageView captchaImageView;
 
     @FXML
     private VBox Start_Box;
@@ -46,7 +52,7 @@ public class Start_Controller {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/search.fxml"));
-            Scene scene = new Scene(fxmlLoader, 900, 620);
+            Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("3L DICTIONARY");
             stage.setScene(scene);
             stage.show();

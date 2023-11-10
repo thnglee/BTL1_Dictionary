@@ -83,6 +83,16 @@ public class Google_Controller {
     private ImageView Switch_Button;
 
     @FXML
+    private ImageView micro;
+
+    @FXML
+    private final Image Micro_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button.png").toExternalForm());
+
+    @FXML
+    private final Image Micro_On_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button2.png").toExternalForm());
+
+
+    @FXML
     private Button Translate_Button;
 
     @FXML
@@ -92,9 +102,9 @@ public class Google_Controller {
 
     private static String ConnectToGGAPI( String input, String languageFrom, String languageTo) throws IOException, IOException {
         String urlSource = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
-                        + "?q=" + URLEncoder.encode(input, "UTF-8")
-                        + "&target=" + languageTo
-                        + "&source=" + languageFrom;
+                + "?q=" + URLEncoder.encode(input, "UTF-8")
+                + "&target=" + languageTo
+                + "&source=" + languageFrom;
         URL url = new URL(urlSource);
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -130,12 +140,43 @@ public class Google_Controller {
         }
     }
 
+    @FXML
+    void speechToText(MouseEvent event) throws Exception {
+        input.clear();
+        micro.setImage(Micro_On_Image);
+        input.setPromptText("Speaks to the microphone");
+
+        String pythonScriptPath = "src/main/resources/com/example/btl1_dictionary/Speech.py";
+        String[] cmd = new String[2];
+        cmd[0] = "python";
+        cmd[1] = pythonScriptPath;
+
+        System.out.println("ready to speech");
+        Runtime rt = Runtime.getRuntime();
+        Process pr = rt.exec(cmd);
+
+        InputStreamReader reader = new InputStreamReader(pr.getInputStream());
+        micro.setImage(Micro_On_Image);
+        input.setPromptText("Speaks to the microphone");
+        BufferedReader bfr = new BufferedReader(reader);
+        String line = "";
+        String result = "";
+        while ((line = bfr.readLine()) != null) {
+            result += line;
+        }
+        bfr.close();
+
+        if (result.length() > 35) {
+            input.setText(result.substring(35));
+        }
+    }
+
     static void playSound(String in, boolean check) {
         try {
             String tmp = in.replace(" ", "%20");
             tmp = tmp.replace("\n", "%20");
             String apiUrl = (check) ? "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=en-us&v=Chi&src="
-                                    : "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=vi-vn&v=Odai&src=";
+                    : "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=vi-vn&v=Odai&src=";
             apiUrl += tmp;
             URI uri = new URI(apiUrl);
             URL url = uri.toURL();
@@ -159,7 +200,6 @@ public class Google_Controller {
             byteArrayInputStream.close();
             inputStream.close();
             connection.disconnect();
-
 
         } catch (Exception e) {
             e.printStackTrace();

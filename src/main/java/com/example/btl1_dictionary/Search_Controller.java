@@ -71,6 +71,13 @@ public class Search_Controller implements Initializable {
     private ImageView Search_Button;
 
     @FXML
+    private ImageView Edit_Button;
+
+    @FXML
+    private final Image Edit_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Edit_button.png").toExternalForm());
+
+
+    @FXML
     public TextField searchBar;
 
     @FXML
@@ -219,6 +226,7 @@ public class Search_Controller implements Initializable {
                     size--;
                 }
             }
+
             lines.removeIf(e -> e.equals(input));
             lines.add(0, input);
 
@@ -233,50 +241,21 @@ public class Search_Controller implements Initializable {
 
     @FXML
     void Voice(MouseEvent event) {
-        Voice voice;
-        VoiceManager voiceManager = VoiceManager.getInstance();
-        voice = voiceManager.getVoice("kevin16");
-        if (voice == null) {
-            System.err.println("Cannot find a voice named kevin16.");
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        Voice[] voicelist = VoiceManager.getInstance().getVoices();
+        for(int  i = 0 ; i  <voicelist.length ; i++) {
+            System.out.println("voice :" + voicelist[i].getName());
         }
-        voice.allocate();
-        String text = searchBar.getText();
-        voice.speak(text);
-//        try {
-//            String apiRe = searchBar.getText();
-//            String tmp = apiRe.replace(" ", "%20");
-//            String apiUrl = "https://api.voicerss.org/?key=331802f6088c4348b53f5cb3f553e3f3&hl=en-us&v=Odai&src=";
-//            apiUrl += tmp;
-//
-//            URI uri = new URI(apiUrl);
-//            URL url = uri.toURL();
-//
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setRequestMethod("GET");
-//
-//            InputStream inputStream = connection.getInputStream();
-//            byte[] data = inputStream.readAllBytes();
-//
-//            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
-//
-//            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(byteArrayInputStream);
-//            Clip clip = AudioSystem.getClip();
-//            clip.open(audioInputStream);
-//
-//            clip.start();
-//
-//            Thread.sleep(clip.getMicrosecondLength() / 1000);
-//
-//            clip.close();
-//            audioInputStream.close();
-//            byteArrayInputStream.close();
-//            inputStream.close();
-//            connection.disconnect();
-//
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        if(voice!=null) {
+            voice.allocate();
+            System.out.println("Voice Rate: " + voice.getRate());
+            System.out.println("Voice pitch: " + voice.getPitch());
+            System.out.println("Voice Volume: " + voice.getVolume());
+            boolean status  = voice.speak(searchBar.getText());
+            System.out.println("status " + status);
+            voice.deallocate();
+        }
     }
 
     @FXML
@@ -322,6 +301,8 @@ public class Search_Controller implements Initializable {
             switchSceneToGame(event);
         } else if (clickedImageView == Saved_Button) {
             switchSceneToSaved(event);
+        } else if (clickedImageView == Edit_Button) {
+            switchSceneToHistory(event);
         }
     }
 
@@ -352,6 +333,8 @@ public class Search_Controller implements Initializable {
             Game_Button.setImage(Game_Image);
         } else if (enteredImageView == Saved_Button) {
             Saved_Button.setImage(Saved_Image);
+        } else if (enteredImageView == Edit_Button) {
+            Edit_Button.setImage(Edit_Image);
         }
     }
 
@@ -367,6 +350,8 @@ public class Search_Controller implements Initializable {
             Game_Button.setImage(null);
         } else if (exitedImageView == Saved_Button) {
             Saved_Button.setImage(null);
+        } else if (exitedImageView == Edit_Button) {
+            Edit_Button.setImage(null);
         }
     }
 
