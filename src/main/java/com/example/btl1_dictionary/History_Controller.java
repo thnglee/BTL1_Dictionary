@@ -26,6 +26,14 @@ public class History_Controller {
     private ImageView Background;
 
     @FXML
+    private ImageView History_Button;
+
+    @FXML
+    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/History_button.png").toExternalForm());
+
+
+
+    @FXML
     private ImageView Game_Button;
 
     @FXML
@@ -48,6 +56,13 @@ public class History_Controller {
 
     @FXML
     private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Search_button.png").toExternalForm());
+
+    @FXML
+    private ImageView Edit_Button;
+
+    @FXML
+    private final Image Edit_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Edit_button.png").toExternalForm());
+
 
     @FXML
     private TextField word1;
@@ -205,7 +220,7 @@ public class History_Controller {
         ((Search_Controller) loader.getController()).search(event);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader, 900, 620);
+        Scene scene = new Scene(fxmlLoader, 875, 650);
         stage.setTitle("3L DICTIONARY");
         stage.setScene(scene);
         stage.show();
@@ -310,6 +325,8 @@ public class History_Controller {
             switchSceneToGame(event);
         } else if (clickedImageView == Saved_Button) {
             switchSceneToSaved(event);
+        } else if (clickedImageView == Edit_Button) {
+            switchSceneToSaved(event);
         }
     }
 
@@ -318,7 +335,7 @@ public class History_Controller {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader, 900, 620);
+            Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("3L DICTIONARY");
             stage.setScene(scene);
             stage.show();
@@ -333,12 +350,19 @@ public class History_Controller {
 
         if (enteredImageView == Search_Button) {
             Search_Button.setImage(Search_Image);
+            History_Button.setImage(null);
         } else if (enteredImageView == Google_Button) {
             Google_Button.setImage(Google_Image);
+            History_Button.setImage(null);
         } else if (enteredImageView == Game_Button) {
             Game_Button.setImage(Game_Image);
+            History_Button.setImage(null);
         } else if (enteredImageView == Saved_Button) {
             Saved_Button.setImage(Saved_Image);
+            History_Button.setImage(null);
+        } else if (enteredImageView == Edit_Button) {
+            Edit_Button.setImage(Edit_Image);
+            History_Button.setImage(null);
         }
     }
 
@@ -348,12 +372,19 @@ public class History_Controller {
 
         if (exitedImageView == Search_Button) {
             Search_Button.setImage(null);
+            History_Button.setImage(History_Image);
         } else if (exitedImageView == Google_Button) {
             Google_Button.setImage(null);
+            History_Button.setImage(History_Image);
         } else if (exitedImageView == Game_Button) {
             Game_Button.setImage(null);
+            History_Button.setImage(History_Image);
         } else if (exitedImageView == Saved_Button) {
             Saved_Button.setImage(null);
+            History_Button.setImage(History_Image);
+        } else if (exitedImageView == Edit_Button) {
+            Edit_Button.setImage(null);
+            History_Button.setImage(History_Image);
         }
     }
 }

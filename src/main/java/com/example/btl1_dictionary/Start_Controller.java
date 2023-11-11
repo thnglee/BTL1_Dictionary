@@ -1,56 +1,135 @@
 package com.example.btl1_dictionary;
 
-import cn.apiclub.captcha.Captcha;
-import javafx.fxml.FXML;
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import cn.apiclub.captcha.Captcha;
+import cn.apiclub.captcha.backgrounds.GradiatedBackgroundProducer;
+import cn.apiclub.captcha.gimpy.FishEyeGimpyRenderer;
 
-public class Start_Controller {
+import java.awt.image.BufferedImage;
+import java.io.*;
+
+public class Start_Controller extends Application {
 
     private Captcha captcha;
     private TextField captchaInput;
     private ImageView captchaImageView;
 
-    @FXML
-    private VBox Start_Box;
+    private Image Background_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Background.png").toExternalForm());
+    BackgroundImage backgroundImage = new BackgroundImage(Background_Image,
+            BackgroundRepeat.NO_REPEAT,
+            BackgroundRepeat.NO_REPEAT,
+            BackgroundPosition.DEFAULT,
+            BackgroundSize.DEFAULT);
 
-    @FXML
-    private ImageView Start;
-    @FXML
-    private final Image curr_image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/start.png").toExternalForm());
-    @FXML
-    private final Image new_image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/new_start.png").toExternalForm());
+    Background background = new Background(backgroundImage);
 
-    @FXML
-    void blurButton(MouseEvent event) {
-        Start.setImage(new_image);
+    public static void main(String[] args) {
+        launch(args);
     }
 
-    @FXML
-    void resetButton(MouseEvent event) {
-        Start.setImage(curr_image);
-    }
-
-
-    @FXML
-    void switchToMain(MouseEvent event) {
-        Start_Box.setVisible(false);
-    }
-
-
-    public void switchToScene2(MouseEvent event) throws IOException {
+    @Override
+    public void start(Stage stage) throws IOException {
         try {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            captcha = new Captcha.Builder(200, 50)
+                    .addText()
+                    .addBackground(new GradiatedBackgroundProducer())
+                    .gimp(new FishEyeGimpyRenderer())
+                    .addBorder()
+                    .build();
+
+            Label captchaLabel = new Label("COMPLETE THIS CAPTCHA:");
+            Font font = new Font("Segoe UI Black",20);
+            captchaLabel.setFont(font);
+            captchaImageView = new ImageView(convertToJavaFXImage(captcha.getImage()));
+            Button resetButton = new Button("Reset");
+            resetButton.setOnAction(e -> resetCaptcha());
+            captchaInput = new TextField();
+            captchaInput.setMaxWidth(300);
+
+            Button submitButton = new Button("SUBMIT");
+            submitButton.setOnAction(e -> {
+                try {
+                    verifyCaptcha(stage);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+
+
+            VBox captchaControls = new VBox(10);
+            captchaControls.getChildren().addAll(captchaImageView, resetButton);
+            captchaControls.setAlignment(Pos.CENTER);
+
+            VBox captchaLayout = new VBox(10);
+            captchaLayout.getChildren().addAll(captchaLabel, captchaControls, captchaInput, submitButton);
+            captchaLayout.setAlignment(Pos.CENTER);
+
+            BorderPane root = new BorderPane();
+            root.setBackground(background);
+            root.setRight(captchaLayout);
+
+
+            Scene scene = new Scene(root, 875, 650);
+
+
+            stage.setTitle("3L DICTIONARY");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void verifyCaptcha(Stage stage) throws IOException {
+        String userInput = captchaInput.getText().trim();
+
+        if (captcha.isCorrect(userInput)) {
+            System.out.println("CAPTCHA is correct!");
+            switchToScene2(stage);
+        } else {
+            System.out.println("CAPTCHA is incorrect. Please try again.");
+            resetCaptcha();
+        }
+    }
+
+    private void resetCaptcha() {
+        captcha = new Captcha.Builder(200, 50)
+                .addText()
+                .addBackground(new GradiatedBackgroundProducer())
+                .gimp(new FishEyeGimpyRenderer())
+                .addBorder()
+                .build();
+        captchaInput.setText("");
+        captchaImageView.setImage(convertToJavaFXImage(captcha.getImage()));
+    }
+
+    private Image convertToJavaFXImage(BufferedImage bufferedImage) {
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            javax.imageio.ImageIO.write(bufferedImage, "png", out);
+            try (InputStream in = new ByteArrayInputStream(out.toByteArray())) {
+                return new Image(in);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void switchToScene2(Stage stage) throws IOException {
+        try {
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/search.fxml"));
             Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("3L DICTIONARY");

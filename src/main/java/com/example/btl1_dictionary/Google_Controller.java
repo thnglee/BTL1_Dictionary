@@ -1,5 +1,6 @@
 package com.example.btl1_dictionary;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -44,6 +46,13 @@ public class Google_Controller {
 
     @FXML
     private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Saved_button.png").toExternalForm());
+
+    @FXML
+    private ImageView Edit_Button;
+
+    @FXML
+    private final Image Edit_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Edit_button.png").toExternalForm());
+
 
     @FXML
     private ImageView Search_Button;
@@ -83,6 +92,9 @@ public class Google_Controller {
     private ImageView Switch_Button;
 
     @FXML
+    private ImageView translate_icon;
+
+    @FXML
     private ImageView micro;
 
     @FXML
@@ -99,6 +111,8 @@ public class Google_Controller {
     private Button Voice_Button;
 
     private boolean checked = true;
+
+    private boolean promptTextVisible = true;
 
     private static String ConnectToGGAPI( String input, String languageFrom, String languageTo) throws IOException, IOException {
         String urlSource = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
@@ -142,33 +156,60 @@ public class Google_Controller {
 
     @FXML
     void speechToText(MouseEvent event) throws Exception {
-        input.clear();
-        micro.setImage(Micro_On_Image);
-        input.setPromptText("Speaks to the microphone");
+        Thread thread = new Thread(() -> {
+            try {
+                Platform.runLater(() -> {
+                    micro.setImage(Micro_On_Image);
+                    input.setPromptText("Please speak to the microphone");
+                    input.setEditable(false);
+                });
 
-        String pythonScriptPath = "src/main/resources/com/example/btl1_dictionary/Speech.py";
-        String[] cmd = new String[2];
-        cmd[0] = "python";
-        cmd[1] = pythonScriptPath;
+                String pythonScriptPath = "src/main/resources/com/example/btl1_dictionary/Speech.py";
+                String[] cmd = new String[2];
+                cmd[0] = "python";
+                cmd[1] = pythonScriptPath;
 
-        System.out.println("ready to speech");
-        Runtime rt = Runtime.getRuntime();
-        Process pr = rt.exec(cmd);
+                System.out.println("ready to speech");
+                Runtime rt = Runtime.getRuntime();
+                Process pr = rt.exec(cmd);
 
-        InputStreamReader reader = new InputStreamReader(pr.getInputStream());
-        micro.setImage(Micro_On_Image);
-        input.setPromptText("Speaks to the microphone");
-        BufferedReader bfr = new BufferedReader(reader);
-        String line = "";
-        String result = "";
-        while ((line = bfr.readLine()) != null) {
-            result += line;
+                InputStreamReader reader = new InputStreamReader(pr.getInputStream());
+                BufferedReader bfr = new BufferedReader(reader);
+                String line = "";
+                String result = "";
+
+                while ((line = bfr.readLine()) != null) {
+                    result += line;
+                }
+                bfr.close();
+
+                String finalResult = result;
+                Platform.runLater(() -> {
+                    micro.setImage(Micro_Image);
+                    input.setEditable(true);
+                    if (finalResult.length() > 35) {
+                        input.setText(finalResult.substring(35));
+                    } else {
+                        input.clear();
+                        input.setPromptText("Type here ...");
+                    }
+                });
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread.start();
+    }
+
+    @FXML
+    void onKeyTyped(KeyEvent event) {
+        if (promptTextVisible) {
+            input.setPromptText("");
+            promptTextVisible = false;
         }
-        bfr.close();
 
-        if (result.length() > 35) {
-            input.setText(result.substring(35));
-        }
     }
 
     static void playSound(String in, boolean check) {
@@ -205,7 +246,6 @@ public class Google_Controller {
             e.printStackTrace();
         }
     }
-
 
     @FXML
     void switchLanguage(MouseEvent event) {
@@ -261,13 +301,12 @@ public class Google_Controller {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader, 900, 620);
+            Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("3L DICTIONARY");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception as needed
         }
     }
 

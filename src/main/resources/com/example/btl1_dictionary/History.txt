@@ -1,10 +1,14 @@
-miss
+new
+keen
 aim
+kick
+joy
+mean
+miss
 target
 dictionary
 go
 get
-get-up-and-go
 guess
 buy
 my
@@ -24,5 +28,3 @@ regret
 bread
 node
 null
-get out
-loud

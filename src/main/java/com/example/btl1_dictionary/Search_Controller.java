@@ -21,9 +21,6 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -311,7 +308,7 @@ public class Search_Controller implements Initializable {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader, 900, 620);
+            Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("3L DICTIONARY");
             stage.setScene(scene);
             stage.show();
