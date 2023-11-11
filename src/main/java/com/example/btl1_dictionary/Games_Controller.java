@@ -1,126 +1,51 @@
 package com.example.btl1_dictionary;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class Games_Controller {
+public class Games_Controller extends General_Controller {
 
-    @FXML
-    private VBox Main_Box;
-
-    @FXML
-    private ImageView Background;
-
-    @FXML
-    private ImageView History_Button;
-
-    @FXML
-    private final Image History_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/History_button.png").toExternalForm());
-
-    @FXML
-    private ImageView Google_Button;
-
-    @FXML
-    private final Image Google_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Google_button.png").toExternalForm());
-
-    @FXML
-    private ImageView Saved_Button;
-
-    @FXML
-    private final Image Saved_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Saved_button.png").toExternalForm());
-
-    @FXML
-    private ImageView Search_Button;
-
-    @FXML
-    private final Image Search_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Search_button.png").toExternalForm());
-
-
-    @FXML
-    void switchSceneToHistory(MouseEvent event) {
-        switchScene("FXML File/history.fxml",  event);
-    }
-
-    @FXML
-    void switchSceneToGoogle(MouseEvent event) {
-        switchScene("FXML File/google.fxml", event);
-    }
-
-    @FXML
-    void switchSceneToSearch(MouseEvent event) {
-        switchScene("FXML File/search.fxml", event);
-    }
-
-    @FXML
-    void switchSceneToSaved(MouseEvent event) {
-        switchScene("FXML File/saved.fxml", event);
-    }
-
-    @FXML
-    void handleSceneSwitch(MouseEvent event) {
-        ImageView clickedImageView = (ImageView) event.getSource();
-
-        if (clickedImageView == Search_Button) {
-            switchSceneToSearch(event);
-        } else if (clickedImageView == Google_Button) {
-            switchSceneToGoogle(event);
-        } else if (clickedImageView == History_Button) {
-            switchSceneToHistory(event);
-        } else if (clickedImageView == Saved_Button) {
-            switchSceneToSaved(event);
-        }
-    }
-
-    @FXML
-    private void switchScene(String fxmlPath, MouseEvent event) {
-        try {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent fxmlLoader = FXMLLoader.load(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader, 900, 620);
-            stage.setTitle("3L DICTIONARY");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Handle the exception as needed
-        }
-    }
-
-    @FXML
-    void Entered(MouseEvent event) {
+    @Override
+    public void Entered(MouseEvent event) {
         ImageView enteredImageView = (ImageView) event.getSource();
 
-        if (enteredImageView == Search_Button) {
-            Search_Button.setImage(Search_Image);
-        } else if (enteredImageView == Google_Button) {
-            Google_Button.setImage(Google_Image);
-        } else if (enteredImageView == History_Button) {
-            History_Button.setImage(History_Image);
-        } else if (enteredImageView == Saved_Button) {
-            Saved_Button.setImage(Saved_Image);
+        if (enteredImageView == getSearch_Button()) {
+            setSearch_Button(Search_Image);
+            setGame_Button(null);
+        } else if (enteredImageView == getHistory_Button()) {
+            setHistory_Button(History_Image);
+            setGame_Button(null);
+        } else if (enteredImageView == getEdit_Button()) {
+            setEdit_Button(Edit_Image);
+            setGame_Button(null);
+        } else if (enteredImageView == getGoogle_Button()) {
+            setGoogle_Button(Google_Image);
+            setGame_Button(null);
+        } else if (enteredImageView == getSaved_Button()) {
+            setSaved_Button(Saved_Image);
+            setGame_Button(null);
         }
     }
 
-    @FXML
-    void Exited(MouseEvent event) {
+    @Override
+    public void Exited(MouseEvent event) {
         ImageView exitedImageView = (ImageView) event.getSource();
 
-        if (exitedImageView == Search_Button) {
-            Search_Button.setImage(null);
-        } else if (exitedImageView == Google_Button) {
-            Google_Button.setImage(null);
-        } else if (exitedImageView == History_Button) {
-            History_Button.setImage(null);
-        } else if (exitedImageView == Saved_Button) {
-            Saved_Button.setImage(null);
+        if (exitedImageView == getSearch_Button()) {
+            setSearch_Button(null);
+            setGame_Button(Game_Image);
+        } else if (exitedImageView == getHistory_Button()) {
+            setHistory_Button(null);
+            setGame_Button(Game_Image);
+        } else if (exitedImageView == getEdit_Button()) {
+            setEdit_Button(null);
+            setGame_Button(Game_Image);
+        } else if (exitedImageView == getGoogle_Button()) {
+            setGoogle_Button(null);
+            setGame_Button(Game_Image);
+        } else if (exitedImageView == getSaved_Button()) {
+            setSaved_Button(null);
+            setGame_Button(Game_Image);
         }
     }
 

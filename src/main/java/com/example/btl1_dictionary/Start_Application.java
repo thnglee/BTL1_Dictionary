@@ -21,13 +21,13 @@ import cn.apiclub.captcha.gimpy.FishEyeGimpyRenderer;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
-public class Start_Controller extends Application {
+public class Start_Application extends Application {
 
     private Captcha captcha;
     private TextField captchaInput;
     private ImageView captchaImageView;
 
-    private Image Background_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Background.png").toExternalForm());
+    private final Image Background_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Background.png").toExternalForm());
     BackgroundImage backgroundImage = new BackgroundImage(Background_Image,
             BackgroundRepeat.NO_REPEAT,
             BackgroundRepeat.NO_REPEAT,
@@ -132,12 +132,11 @@ public class Start_Controller extends Application {
         try {
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/search.fxml"));
             Scene scene = new Scene(fxmlLoader, 875, 650);
-            stage.setTitle("3L DICTIONARY");
+            stage.setTitle("DICTIONARY");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle the exception as needed
         }
     }
 }

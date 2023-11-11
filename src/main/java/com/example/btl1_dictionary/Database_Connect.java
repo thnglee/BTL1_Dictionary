@@ -4,13 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import javax.naming.spi.DirStateFactory.Result;
-import javax.swing.text.html.parser.Entity;
 
 class Word {
     public int id;
@@ -33,7 +28,7 @@ class Word {
     }
 }
 
-public class Database_Controller {
+public class Database_Connect {
 
     static Connection connection = null;
 
@@ -46,7 +41,6 @@ public class Database_Controller {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
 
