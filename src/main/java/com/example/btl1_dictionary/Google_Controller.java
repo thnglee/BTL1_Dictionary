@@ -45,6 +45,9 @@ public class Google_Controller extends General_Controller {
     private TextArea output;
 
     @FXML
+    private ImageView clear;
+
+    @FXML
     private ImageView micro;
 
     @FXML
@@ -53,9 +56,7 @@ public class Google_Controller extends General_Controller {
     @FXML
     private final Image Micro_On_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button2.png").toExternalForm());
 
-    private boolean checked = true;
-
-    private boolean promptTextVisible = true;
+    private boolean isEnglish = true;
 
     private static String ConnectToGGAPI( String input, String languageFrom, String languageTo) throws IOException, IOException {
         String urlSource = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
@@ -82,7 +83,7 @@ public class Google_Controller extends General_Controller {
         String in = input.getText();
         voice_from.setImage(Voice_Image);
         voice_to.setImage(Voice_Image);
-        String res = (checked) ? ConnectToGGAPI(in, "en", "vi") : ConnectToGGAPI(in, "vi", "en");
+        String res = (isEnglish) ? ConnectToGGAPI(in, "en", "vi") : ConnectToGGAPI(in, "vi", "en");
         output.setText(res);
     }
 
@@ -91,9 +92,9 @@ public class Google_Controller extends General_Controller {
         ImageView clickedImageView = (ImageView) event.getSource();
 
         if (clickedImageView == voice_from) {
-            playSound(input.getText(),checked);
+            playSound(input.getText(),isEnglish);
         } else if (clickedImageView == voice_to) {
-            playSound(output.getText().trim(),!checked);
+            playSound(output.getText().trim(),!isEnglish);
         }
     }
 
@@ -103,7 +104,7 @@ public class Google_Controller extends General_Controller {
             try {
                 Platform.runLater(() -> {
                     micro.setImage(Micro_On_Image);
-                    input.setPromptText("Please speak to the microphone");
+                    input.setText("Please speak to the microphone");
                     input.setEditable(false);
                 });
 
@@ -148,11 +149,7 @@ public class Google_Controller extends General_Controller {
 
     @FXML
     void onKeyTyped(KeyEvent event) {
-        if (promptTextVisible) {
-            input.setPromptText("");
-            promptTextVisible = false;
-        }
-
+        output.clear();
     }
 
     static void playSound(String in, boolean check) {
@@ -192,17 +189,26 @@ public class Google_Controller extends General_Controller {
 
     @FXML
     void switchLanguage(MouseEvent event) {
-        if (checked) {
-            checked = false;
+        if (isEnglish) {
+            isEnglish = false;
             langFrom.setImage(Vie);
             langTo.setImage(Eng);
         }
         else {
-            checked = true;
+            isEnglish = true;
             langFrom.setImage(Eng);
             langTo.setImage(Vie);
         }
     }
+
+    @FXML
+    void Clear(MouseEvent event) {
+        input.clear();
+        output.clear();
+        voice_from.setImage(null);
+        voice_to.setImage(null);
+    }
+
 
     @Override
     public void Entered(MouseEvent event) {

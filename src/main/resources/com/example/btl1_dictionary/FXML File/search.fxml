@@ -52,23 +52,23 @@
                <image>
                   <Image url="@../Image/search_bg.png" />
                </image></ImageView>
-            <ImageView fx:id="Search_Button" fitHeight="100.0" fitWidth="85.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Search_Button" fitHeight="85.0" fitWidth="85.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Search_button.png" />
                </image></ImageView>
-            <ImageView fx:id="History_Button" fitHeight="84.0" fitWidth="85.0" layoutY="184.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="History_Button" fitHeight="85.0" fitWidth="85.0" layoutY="185.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <ImageView fx:id="Google_Button" fitHeight="84.0" fitWidth="85.0" layoutY="433.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Google_Button" fitHeight="85.0" fitWidth="85.0" layoutY="440.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <ImageView fx:id="Game_Button" fitHeight="84.0" fitWidth="85.0" layoutY="524.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Game_Button" fitHeight="85.0" fitWidth="85.0" layoutY="525.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <ImageView fx:id="Saved_Button" fitHeight="84.0" fitWidth="85.0" layoutY="268.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Saved_Button" fitHeight="85.0" fitWidth="85.0" layoutY="270.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
@@ -77,7 +77,7 @@
                   <Font name="Dubai Medium" size="20.0" />
                </font></TextField>
             <ListView fx:id="suggestion" layoutX="115.0" layoutY="168.0" onMouseClicked="#Fill" prefHeight="446.0" prefWidth="266.0" />
-            <WebView fx:id="meaning" blendMode="DARKEN" layoutX="415.0" layoutY="84.0" prefHeight="556.0" prefWidth="453.0" />
+            <WebView fx:id="meaning" blendMode="DARKEN" layoutX="413.0" layoutY="83.0" prefHeight="556.0" prefWidth="453.0" />
             <ImageView fx:id="voice" fitHeight="32.0" fitWidth="42.0" layoutX="811.0" layoutY="147.0" onMouseClicked="#Voice" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -90,7 +90,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="Edit_Button" fitHeight="84.0" fitWidth="85.0" layoutY="349.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Edit_Button" fitHeight="85.0" fitWidth="85.0" layoutY="355.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

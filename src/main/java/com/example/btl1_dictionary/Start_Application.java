@@ -36,10 +36,6 @@ public class Start_Application extends Application {
 
     Background background = new Background(backgroundImage);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
     public void start(Stage stage) throws IOException {
         try {
@@ -93,12 +89,17 @@ public class Start_Application extends Application {
         }
     }
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
     private void verifyCaptcha(Stage stage) throws IOException {
         String userInput = captchaInput.getText().trim();
 
         if (captcha.isCorrect(userInput)) {
             System.out.println("CAPTCHA is correct!");
-            switchToScene2(stage);
+            switchToMain(stage);
         } else {
             System.out.println("CAPTCHA is incorrect. Please try again.");
             resetCaptcha();
@@ -128,7 +129,7 @@ public class Start_Application extends Application {
         }
     }
 
-    public void switchToScene2(Stage stage) throws IOException {
+    public void switchToMain(Stage stage) throws IOException {
         try {
             Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/search.fxml"));
             Scene scene = new Scene(fxmlLoader, 875, 650);

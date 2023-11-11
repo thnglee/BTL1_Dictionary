@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -46,6 +47,31 @@
                   <Image url="@../Image/main.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="Search_Button" fitHeight="85.0" fitWidth="85.0" layoutY="100.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="History_Button" fitHeight="85.0" fitWidth="85.0" layoutY="185.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Saved_Button" fitHeight="85.0" fitWidth="85.0" layoutY="270.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Edit_Button" fitHeight="85.0" fitWidth="85.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Edit_button.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Google_Button" fitHeight="85.0" fitWidth="85.0" layoutY="440.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Game_Button" fitHeight="85.0" fitWidth="85.0" layoutY="525.0" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
          </children>
     </AnchorPane>
   </children>

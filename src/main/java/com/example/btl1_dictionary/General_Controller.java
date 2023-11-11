@@ -127,7 +127,7 @@ public abstract class General_Controller {
         } else if (clickedImageView == Google_Button) {
             switchScene("FXML File/google.fxml", event);
         } else if (clickedImageView == Game_Button) {
-            switchScene("FXML File/saved.fxml", event);
+            switchScene("FXML File/games.fxml", event);
         } else if (clickedImageView == History_Button) {
             switchScene("FXML File/history.fxml", event);
         } else if (clickedImageView == Saved_Button) {

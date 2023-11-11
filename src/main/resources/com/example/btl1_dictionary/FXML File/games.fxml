@@ -32,73 +32,47 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="Main_Box" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Games_Controller">
+<VBox fx:id="Main_Box" prefHeight="650.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Games_Controller">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Label layoutX="85.0" layoutY="74.0" text="Type word here" />
-            <ImageView fx:id="Background" fitHeight="603.0" fitWidth="900.0" layoutY="-4.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Background" fitHeight="650.0" fitWidth="875.0" layoutY="0.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/main.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Search_Button" fitHeight="100.0" fitWidth="100.0" layoutY="98.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="History_Button" fitHeight="100.0" fitWidth="100.0" layoutY="198.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Google_Button" fitHeight="100.0" fitWidth="100.0" layoutY="297.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="Game_Button" fitHeight="100.0" fitWidth="116.0" layoutY="396.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Search_Button" fitHeight="85.0" fitWidth="85.0" layoutY="100.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="History_Button" fitHeight="85.0" fitWidth="85.0" layoutY="185.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Google_Button" fitHeight="85.0" fitWidth="85.0" layoutY="440.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Game_Button" fitHeight="85.0" fitWidth="85.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Games_button.png" />
                </image></ImageView>
-            <ImageView fx:id="Saved_Button" fitHeight="100.0" fitWidth="100.0" layoutY="496.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Saved_Button" fitHeight="85.0" fitWidth="85.0" layoutY="270.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="Edit_Button" fitHeight="85.0" fitWidth="85.0" layoutY="355.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
          </children>
     </AnchorPane>
   </children>
