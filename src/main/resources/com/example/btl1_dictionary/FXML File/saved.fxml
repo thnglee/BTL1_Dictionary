@@ -34,10 +34,12 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="Main_Box" prefHeight="650.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Saved_Controller">
   <children>
@@ -46,7 +48,7 @@
             <Label layoutX="85.0" layoutY="74.0" text="Type word here" />
             <ImageView fx:id="Background" fitHeight="650.0" fitWidth="875.0" layoutY="0.0" onMouseClicked="#handleSceneSwitch" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/main.png" />
+                  <Image url="@../Image/saved_bg.png" />
                </image>
             </ImageView>
             <ImageView fx:id="Search_Button" fitHeight="85.0" fitWidth="85.0" layoutY="100.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
@@ -73,6 +75,117 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
+            <TextField blendMode="DARKEN" layoutX="151.0" layoutY="130.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="181.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="232.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="284.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="336.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="388.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="439.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="491.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="542.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="151.0" layoutY="594.0" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="523.0" layoutY="336.0" prefHeight="62.0" prefWidth="289.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="599.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+            </ImageView>
          </children>
     </AnchorPane>
   </children>

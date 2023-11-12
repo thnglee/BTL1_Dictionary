@@ -15,7 +15,9 @@ import javafx.scene.web.WebView;
 import javafx.util.Callback;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.sun.speech.freetts.Voice;
@@ -141,9 +143,9 @@ public class Search_Controller extends General_Controller {
     @FXML
     void search(MouseEvent event) throws Exception {
         String input = searchBar.getText().toLowerCase();
-        String path = "src/main/resources/com/example/btl1_dictionary/History.txt";
+        String historyPath = "src/main/resources/com/example/btl1_dictionary/History.txt";
+        String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Frequency.txt";
 
-        String html = Database_Connect.GetWordFromDatabase(input);
         meaning.getEngine().loadContent(Database_Connect.GetWordFromDatabase(input), "text/html");
 
         if (!Database_Connect.found) {
@@ -152,7 +154,7 @@ public class Search_Controller extends General_Controller {
             voice.setImage(Voice_Image);
             List<String> lines = new ArrayList<>();
             String line = "";
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedReader br = new BufferedReader(new FileReader(historyPath));
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
                     lines.add(line.trim());
@@ -172,12 +174,50 @@ public class Search_Controller extends General_Controller {
             lines.removeIf(e -> e.equals(input));
             lines.add(0, input);
 
-            FileWriter fw = new FileWriter(path);
+            FileWriter fw = new FileWriter(historyPath);
             for (String lineToWrite : lines) {
                 fw.write(lineToWrite);
                 fw.write("\n");
             }
             fw.close();
+
+            long currentTimeMillis = System.currentTimeMillis();
+            Date currentDate = new Date(currentTimeMillis);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String currentDateString = dateFormat.format(currentDate);
+
+            boolean getDate = true;
+            String lastDate ="";
+            List<Integer> lines2 = new ArrayList<>();
+            String line2 = "";
+            BufferedReader br2 = new BufferedReader(new FileReader(frequencyPath));
+            while ((line2 = br2.readLine()) != null) {
+                if (!line2.isEmpty()) {
+                    if (getDate) {
+                        lastDate = line2;
+                        getDate = false;
+                        continue;
+                    }
+                    lines2.add(Integer.parseInt(line2.trim()));
+                }
+            }
+            br2.close();
+
+            if (currentDateString.equals(lastDate)) {
+                lines2.set(0,lines2.get(0)+1);
+            } else {
+                lines2.add(0,1);
+                lines2.remove(lines2.size() - 1);
+            }
+
+            FileWriter fw2 = new FileWriter(frequencyPath);
+            fw2.write(currentDateString);
+            fw2.write("\n");
+            for (Integer lineToWrite : lines2) {
+                fw2.write(lineToWrite.toString());
+                fw2.write("\n");
+            }
+            fw2.close();
         }
     }
 
@@ -186,8 +226,8 @@ public class Search_Controller extends General_Controller {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         Voice voice = VoiceManager.getInstance().getVoice("kevin16");
         Voice[] voicelist = VoiceManager.getInstance().getVoices();
-        for(int  i = 0 ; i  <voicelist.length ; i++) {
-            System.out.println("voice :" + voicelist[i].getName());
+        for (Voice value : voicelist) {
+            System.out.println("voice :" + value.getName());
         }
         if(voice!=null) {
             voice.allocate();

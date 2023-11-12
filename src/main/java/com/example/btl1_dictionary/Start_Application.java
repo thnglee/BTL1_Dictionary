@@ -81,7 +81,7 @@ public class Start_Application extends Application {
             Scene scene = new Scene(root, 875, 650);
 
 
-            stage.setTitle("3L DICTIONARY");
+            stage.setTitle("DICTIONARY");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

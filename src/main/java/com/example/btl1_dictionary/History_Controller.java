@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -12,8 +13,15 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 
 public class History_Controller extends General_Controller {
 
@@ -67,10 +75,19 @@ public class History_Controller extends General_Controller {
     @FXML
     private ImageView remove10;
 
+    @FXML
+    private BarChart<String, Number> frequency;
+
+    @FXML
+    private TextField today;
+
+    @FXML
+    private TextField schedule;
+
     public void initialize() throws IOException {
         try {
-            String path = "src/main/resources/com/example/btl1_dictionary/History.txt";
-            BufferedReader bf = new BufferedReader(new FileReader(path));
+            String historyPath = "src/main/resources/com/example/btl1_dictionary/History.txt";
+            BufferedReader bf = new BufferedReader(new FileReader(historyPath));
             String line = "";
             int count = 0;
             List<String> list = new ArrayList<String>();
@@ -99,6 +116,54 @@ public class History_Controller extends General_Controller {
             word8.setText(list.get(7));
             word9.setText(list.get(8));
             word10.setText(list.get(9));
+
+            boolean checkDate = true;
+            boolean newDay = false;
+            String lastDate = "";
+            String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Frequency.txt";
+            BufferedReader bf2 = new BufferedReader(new FileReader(frequencyPath));
+            String line2 = "";
+            List<Integer> list2 = new ArrayList<>();
+            while ((line2 = bf2.readLine()) != null) {
+                if (!line2.isEmpty()) {
+                    if (checkDate) {
+                        lastDate = line2.trim();
+                        checkDate = false;
+                        continue;
+                    }
+                    list2.add(Integer.parseInt(line2.trim()));
+                }
+            }
+            bf2.close();
+
+            long currentTimeMillis = System.currentTimeMillis();
+            Date currentDate = new Date(currentTimeMillis);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String currentDateString = dateFormat.format(currentDate);
+            String day = currentDateString.substring(8,10);
+            String month = currentDateString.substring(5,7);
+            String year = currentDateString.substring(0,4);
+            schedule.setText(day + "/" + month + "/" + year);
+            if (!currentDateString.equals(lastDate)) {
+                newDay = true;
+            }
+
+            today.setText((newDay) ? "0" : list2.get(0).toString());
+            frequency.setAnimated(false);
+            frequency.setTitle("FREQUENCY LAST 7 DAYS YOU USE THE APP");
+            frequency.setCategoryGap(1);
+
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            series.getData().add(new XYChart.Data<>("6D", (newDay) ? list2.get(5) : list2.get(6)));
+            series.getData().add(new XYChart.Data<>("5D", (newDay) ? list2.get(4) : list2.get(5)));
+            series.getData().add(new XYChart.Data<>("4D", (newDay) ? list2.get(3) : list2.get(4)));
+            series.getData().add(new XYChart.Data<>("3D", (newDay) ? list2.get(2) : list2.get(3)));
+            series.getData().add(new XYChart.Data<>("2D", (newDay) ? list2.get(1) : list2.get(2)));
+            series.getData().add(new XYChart.Data<>("1D", (newDay) ? list2.get(0) : list2.get(1)));
+            series.getData().add(new XYChart.Data<>("TODAY", (newDay) ? 0 : list2.get(0)));
+
+            frequency.getData().add(series);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

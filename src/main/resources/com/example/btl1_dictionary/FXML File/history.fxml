@@ -33,6 +33,9 @@
 -->
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -235,6 +238,24 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <BarChart fx:id="frequency" layoutX="482.0" layoutY="354.0" prefHeight="274.0" prefWidth="366.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="TIMES" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <TextField fx:id="today" editable="false" layoutX="768.0" layoutY="245.0" prefHeight="43.0" prefWidth="55.0">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="schedule" layoutX="698.0" layoutY="82.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Segoe UI Emoji" size="20.0" />
+               </font>
+            </TextField>
          </children>
     </AnchorPane>
   </children>

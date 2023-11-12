@@ -1,13 +1,20 @@
+create
+skean
+get
+new
+oxygen
+go about
+new-orthodoxy
+learn
+can
 miss
 deacon
 men
-new
 mean
 keen
 target
 dictionary
 go
-get
 guess
 buy
 my
@@ -21,9 +28,3 @@ rust
 got
 pig
 break
-restaurant
-guy
-regret
-bread
-node
-null
