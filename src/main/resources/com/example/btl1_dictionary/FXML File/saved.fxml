@@ -75,116 +75,189 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <TextField blendMode="DARKEN" layoutX="151.0" layoutY="130.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word1" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="130.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="181.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="wordOTD" editable="false" layoutX="608.0" layoutY="332.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="43.0" prefWidth="117.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
-               </font>
-            </TextField>
-            <TextField layoutX="151.0" layoutY="232.0" prefHeight="39.0" prefWidth="258.0">
-               <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="284.0" prefHeight="39.0" prefWidth="258.0">
+            <ImageView fx:id="remove1" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="140.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="previousButton" fitHeight="34.0" fitWidth="42.0" layoutX="127.0" layoutY="83.0" onMouseClicked="#previous" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/arrow-left.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="nextButton" fitHeight="34.0" fitWidth="42.0" layoutX="401.0" layoutY="83.0" onMouseClicked="#next" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/arrow-right.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <TextField fx:id="word2" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="181.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="336.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word3" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="232.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="388.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word4" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="284.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="439.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word5" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="335.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="491.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word6" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="387.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="542.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word7" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="439.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="151.0" layoutY="594.0" prefHeight="39.0" prefWidth="258.0">
+            <TextField fx:id="word8" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="490.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField layoutX="523.0" layoutY="336.0" prefHeight="62.0" prefWidth="289.0">
+            <TextField fx:id="word9" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="541.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Emoji" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+            <TextField fx:id="word10" blendMode="DARKEN" editable="false" layoutX="151.0" layoutY="593.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="39.0" prefWidth="258.0">
+               <font>
+                  <Font name="Segoe UI Emoji" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+            <ImageView fx:id="remove2" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="191.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove3" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="242.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove4" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="294.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove5" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="346.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove6" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="397.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove7" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="449.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove8" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="500.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove9" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="551.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="remove10" fitHeight="24.0" fitWidth="34.0" layoutX="423.0" layoutY="603.0" onMouseClicked="#removed" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
                </image>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="418.0" layoutY="599.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/Delete_Button.png" />
-               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
     </AnchorPane>

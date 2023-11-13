@@ -18,12 +18,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
 public class History_Controller extends General_Controller {
+
+    @FXML
+    private ImageView nextButton;
+
+    @FXML
+    private ImageView previousButton;
 
     @FXML
     private TextField word1;
@@ -84,38 +87,25 @@ public class History_Controller extends General_Controller {
     @FXML
     private TextField schedule;
 
-    public void initialize() throws IOException {
+    private List<String> wordList = new ArrayList<String>();
+
+    int numberOfPages = 0;
+    int currentPage = 1;
+
+    public void initialize() {
         try {
+            previousButton.setVisible(false);
             String historyPath = "src/main/resources/com/example/btl1_dictionary/History.txt";
             BufferedReader bf = new BufferedReader(new FileReader(historyPath));
             String line = "";
-            int count = 0;
-            List<String> list = new ArrayList<String>();
-            while ((line = bf.readLine()) != null && count <= 10) {
-                list.add(line.trim());
-                count++;
+            while ((line = bf.readLine()) != null) {
+                wordList.add(line.trim());
             }
             bf.close();
 
-            int size = list.size();
-            if (size < 10) {
-                int tmp = 10 - size;
-                while (tmp > 0) {
-                    list.add(" ");
-                    tmp--;
-                }
-            }
+            setWord(wordList,(currentPage - 1) * 10);
 
-            word1.setText(list.get(0));
-            word2.setText(list.get(1));
-            word3.setText(list.get(2));
-            word4.setText(list.get(3));
-            word5.setText(list.get(4));
-            word6.setText(list.get(5));
-            word7.setText(list.get(6));
-            word8.setText(list.get(7));
-            word9.setText(list.get(8));
-            word10.setText(list.get(9));
+            numberOfPages = wordList.size() / 10 + 1;
 
             boolean checkDate = true;
             boolean newDay = false;
@@ -167,6 +157,24 @@ public class History_Controller extends General_Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void setWord(List<String> list, int index) {
+        int size = list.size();
+        int tmp = 10 - (size - index);
+        while (tmp --> 0) {
+            list.add(" ");
+        }
+        word1.setText(list.get(index));
+        word2.setText(list.get(index + 1));
+        word3.setText(list.get(index + 2));
+        word4.setText(list.get(index + 3));
+        word5.setText(list.get(index + 4));
+        word6.setText(list.get(index + 5));
+        word7.setText(list.get(index + 6));
+        word8.setText(list.get(index + 7));
+        word9.setText(list.get(index + 8));
+        word10.setText(list.get(index + 9));
     }
 
     @FXML
@@ -221,16 +229,19 @@ public class History_Controller extends General_Controller {
         } else if (attempted == word10) {
             res = word10.getText();
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML File/search.fxml"));
-        Parent fxmlLoader = loader.load();
-        ((Search_Controller) loader.getController()).getSearchBar().setText(res);
-        ((Search_Controller) loader.getController()).search(event);
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader, 875, 650);
-        stage.setTitle("DICTIONARY");
-        stage.setScene(scene);
-        stage.show();
+        if (!res.equals(" ")) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML File/search.fxml"));
+            Parent fxmlLoader = loader.load();
+            ((Search_Controller) loader.getController()).getSearchBar().setText(res);
+            ((Search_Controller) loader.getController()).search(event);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader, 875, 650);
+            stage.setTitle("DICTIONARY");
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @FXML
@@ -296,7 +307,40 @@ public class History_Controller extends General_Controller {
         }
         fw.close();
 
-        initialize();
+        wordList.clear();
+        String historyPath = "src/main/resources/com/example/btl1_dictionary/History.txt";
+        BufferedReader bf = new BufferedReader(new FileReader(historyPath));
+        String line = "";
+        while ((line = bf.readLine()) != null) {
+            wordList.add(line.trim());
+        }
+        bf.close();
+
+        setWord(wordList,(currentPage - 1) * 10);
+    }
+
+    @FXML
+    void next(MouseEvent event) {
+        previousButton.setVisible(true);
+        if (currentPage < numberOfPages ) {
+            currentPage++;
+            setWord(wordList,(currentPage - 1) * 10);
+        }
+        if (currentPage == numberOfPages) {
+            nextButton.setVisible(false);
+        }
+    }
+
+    @FXML
+    void previous(MouseEvent event) {
+        nextButton.setVisible(true);
+        if (currentPage > 1) {
+            currentPage--;
+            setWord(wordList,(currentPage - 1) * 10);
+        }
+        if (currentPage == 1) {
+            previousButton.setVisible(false);
+        }
     }
 
     @Override

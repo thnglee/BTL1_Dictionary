@@ -256,6 +256,22 @@
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
             </TextField>
+            <ImageView fx:id="previousButton" fitHeight="35.0" fitWidth="37.0" layoutX="120.0" layoutY="83.0" onMouseClicked="#previous" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/arrow-left.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="nextButton" fitHeight="35.0" fitWidth="44.0" layoutX="402.0" layoutY="83.0" onMouseClicked="#next" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/arrow-right.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
     </AnchorPane>
   </children>
