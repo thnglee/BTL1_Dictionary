@@ -11,6 +11,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
 public abstract class General_Controller {
 
     @FXML
@@ -103,6 +107,19 @@ public abstract class General_Controller {
 
     @FXML
     public final Image Edit_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Edit_button.png").toExternalForm());
+
+    String historyPath = "src/main/resources/com/example/btl1_dictionary/History.txt";
+    String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Frequency.txt";
+    String savedPath = "src/main/resources/com/example/btl1_dictionary/Saved.txt";
+
+    void writeToFile(String path, List<String> list) throws IOException {
+        FileWriter fw = new FileWriter(path);
+        for (String lineToWrite : list) {
+            fw.write(lineToWrite);
+            fw.write("\n");
+        }
+        fw.close();
+    }
 
     @FXML
     public void switchScene(String fxmlPath, MouseEvent event) {

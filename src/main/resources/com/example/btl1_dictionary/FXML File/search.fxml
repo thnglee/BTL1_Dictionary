@@ -72,16 +72,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <TextField fx:id="searchBar" layoutX="115.0" layoutY="100.0" onKeyPressed="#initialize" prefHeight="52.0" prefWidth="214.0" promptText="Type the word....">
+            <TextField fx:id="searchBar" layoutX="115.0" layoutY="100.0" onKeyTyped="#onKeyTyped" prefHeight="52.0" prefWidth="214.0" promptText="Type the word....">
                <font>
                   <Font name="Dubai Medium" size="20.0" />
                </font></TextField>
-            <ListView fx:id="suggestion" layoutX="115.0" layoutY="168.0" onMouseClicked="#Fill" prefHeight="446.0" prefWidth="266.0" />
-            <WebView fx:id="meaning" blendMode="DARKEN" layoutX="413.0" layoutY="83.0" prefHeight="556.0" prefWidth="453.0" />
-            <ImageView fx:id="voice" fitHeight="32.0" fitWidth="42.0" layoutX="811.0" layoutY="147.0" onMouseClicked="#Voice" pickOnBounds="true" preserveRatio="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></ImageView>
+            <ListView fx:id="suggestion" layoutX="115.0" layoutY="168.0" onMouseClicked="#Fill" prefHeight="470.0" prefWidth="266.0" />
+            <WebView fx:id="meaning" blendMode="DARKEN" layoutX="412.0" layoutY="194.0" prefHeight="446.0" prefWidth="454.0" />
             <ImageView fx:id="searchButton" fitHeight="52.0" fitWidth="42.0" layoutX="339.0" layoutY="105.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Search_icon.png" />
@@ -95,6 +91,15 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <WebView fx:id="word" blendMode="MULTIPLY" layoutX="415.0" layoutY="84.0" prefHeight="110.0" prefWidth="454.0" />
+            <ImageView fx:id="voice" fitHeight="32.0" fitWidth="42.0" layoutX="800.0" layoutY="136.0" onMouseClicked="#Voice" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="saved" fitHeight="32.0" fitWidth="32.0" layoutX="800.0" layoutY="89.0" onMouseClicked="#Save" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
          </children>
     </AnchorPane>
   </children>

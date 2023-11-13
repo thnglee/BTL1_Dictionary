@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -88,23 +89,24 @@ public class Saved_Controller extends General_Controller {
     public void initialize() {
         try {
             previousButton.setVisible(false);
-
-            wordList.clear();
-            String savedPath = "src/main/resources/com/example/btl1_dictionary/Saved.txt";
             BufferedReader bf = new BufferedReader(new FileReader(savedPath));
             String line = "";
             while ((line = bf.readLine()) != null) {
-                wordList.add(line.trim());
+                if (!line.equals(" ")) {
+                    wordList.add(line.trim());
+                }
             }
             bf.close();
 
-            setWord(wordList,(currentPage - 1) * 10);
+            Collections.sort(wordList);
 
-            numberOfPages = wordList.size() / 10 + 1;
+            setWord(wordList,(currentPage - 1) * 10);
+            int size = wordList.size();
+            numberOfPages = (size % 10 == 0 ) ? size / 10 : size / 10 + 1;
 
             Random random = new Random();
             int randomIndex = random.nextInt(wordList.size());
-            wordOTD.setText(wordList.get(randomIndex));
+            wordOTD.setText(wordList.get(randomIndex).toUpperCase());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -233,47 +235,30 @@ public class Saved_Controller extends General_Controller {
     void removed(MouseEvent event) throws Exception {
         ImageView removed = (ImageView) event.getSource();
 
-        String path = "src/main/resources/com/example/btl1_dictionary/Saved.txt";
-
-        List<String> lines = new ArrayList<>();
-        String line2 = "";
-        BufferedReader br = new BufferedReader(new FileReader(path));
-        while ((line2 = br.readLine()) != null) {
-            if (!line2.isEmpty()) {
-                if ((removed == remove1 && line2.equals(word1.getText())) ||
-                        (removed == remove2 && line2.equals(word2.getText())) ||
-                        (removed == remove3 && line2.equals(word3.getText())) ||
-                        (removed == remove4 && line2.equals(word4.getText())) ||
-                        (removed == remove5 && line2.equals(word5.getText())) ||
-                        (removed == remove6 && line2.equals(word6.getText())) ||
-                        (removed == remove7 && line2.equals(word7.getText())) ||
-                        (removed == remove8 && line2.equals(word8.getText())) ||
-                        (removed == remove9 && line2.equals(word9.getText())) ||
-                        (removed == remove10 && line2.equals(word10.getText()))) {
+        wordList.clear();
+        String line = "";
+        BufferedReader br = new BufferedReader(new FileReader(savedPath));
+        while ((line = br.readLine()) != null) {
+            if (!line.isEmpty()) {
+                if ((removed == remove1 && line.equals(word1.getText())) ||
+                        (removed == remove2 && line.equals(word2.getText())) ||
+                        (removed == remove3 && line.equals(word3.getText())) ||
+                        (removed == remove4 && line.equals(word4.getText())) ||
+                        (removed == remove5 && line.equals(word5.getText())) ||
+                        (removed == remove6 && line.equals(word6.getText())) ||
+                        (removed == remove7 && line.equals(word7.getText())) ||
+                        (removed == remove8 && line.equals(word8.getText())) ||
+                        (removed == remove9 && line.equals(word9.getText())) ||
+                        (removed == remove10 && line.equals(word10.getText()))) {
                     continue;
                 }
-                lines.add(line2.trim());
+                wordList.add(line.trim());
             }
         }
         br.close();
 
 
-        FileWriter fw = new FileWriter(path);
-        for (String lineToWrite : lines) {
-            fw.write(lineToWrite);
-            fw.write("\n");
-        }
-        fw.close();
-
-        wordList.clear();
-        String savedPath = "src/main/resources/com/example/btl1_dictionary/Saved.txt";
-        BufferedReader bf = new BufferedReader(new FileReader(savedPath));
-        String line = "";
-        while ((line = bf.readLine()) != null) {
-            wordList.add(line.trim());
-        }
-        bf.close();
-
+        writeToFile(savedPath, wordList);
         setWord(wordList,(currentPage - 1) * 10);
     }
 
