@@ -11,6 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -112,13 +114,26 @@ public abstract class General_Controller {
     String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Frequency.txt";
     String savedPath = "src/main/resources/com/example/btl1_dictionary/Saved.txt";
 
-    void writeToFile(String path, List<String> list) throws IOException {
+    public void writeToFile(String path, List<String> list) throws IOException {
         FileWriter fw = new FileWriter(path);
         for (String lineToWrite : list) {
             fw.write(lineToWrite);
             fw.write("\n");
         }
         fw.close();
+    }
+
+    public void readFile(String path, List<String> list) throws IOException {
+        String line ="";
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        while ((line = br.readLine()) != null) {
+            if (!line.isEmpty()) {
+                if (!line.equals(" ")) {
+                    list.add(line.trim());
+                }
+            }
+        }
+        br.close();
     }
 
     @FXML

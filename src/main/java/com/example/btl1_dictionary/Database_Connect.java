@@ -1,9 +1,6 @@
 package com.example.btl1_dictionary;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -158,6 +155,8 @@ public class Database_Connect {
 
     static String meaning;
 
+    static String both;
+
     static boolean found = true;
 
     static List<String> suggestions = new ArrayList<>();
@@ -217,6 +216,7 @@ public class Database_Connect {
         }
         word = res1.toString();
         meaning = res2.toString();
+        both = word.concat(meaning);
     }
 
     public static void loadSuggestions() {
@@ -248,6 +248,84 @@ public class Database_Connect {
 
     public static void createSuggestions(String input) {
         suggestions = Trie.search(input);
+    }
+
+    public static void addWord(String word, String pronounce, String html) throws SQLException {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try (Connection connection1 = DriverManager.getConnection(
+                "jdbc:sqlite:src/main/resources/com/example/btl1_dictionary/Database/dict_hh.db");) {
+            if (connection1 != null) {
+                connection = connection1;
+            }
+            String query = "INSERT INTO av(word, pronounce, html) VALUES (?, ?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, word);
+                preparedStatement.setString(2, pronounce);
+                preparedStatement.setString(3, html);
+
+                preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void makeModify(String word, String html) {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try (Connection connection1 = DriverManager.getConnection(
+                "jdbc:sqlite:src/main/resources/com/example/btl1_dictionary/Database/dict_hh.db");) {
+            if (connection1 != null) {
+                connection = connection1;
+            }
+            String querry = String.format("UPDATE av SET html = '%s' where word = '%s';", html,word);
+
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void deleteWord(String word) {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try (Connection connection1 = DriverManager.getConnection(
+                "jdbc:sqlite:src/main/resources/com/example/btl1_dictionary/Database/dict_hh.db");) {
+            if (connection1 != null) {
+                connection = connection1;
+            }
+            String querry = String.format("DELETE FROM av WHERE word = '%s'", word);
+
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement(querry);
+            try (preparedStatement) {
+                connection.setAutoCommit(false);
+                preparedStatement.executeUpdate();
+                connection.commit();
+            } catch (SQLException e) {
+                connection.rollback();
+                throw new RuntimeException(e);
+            } finally {
+                connection.setAutoCommit(true);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

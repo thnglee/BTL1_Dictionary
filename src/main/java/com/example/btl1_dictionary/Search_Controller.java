@@ -23,7 +23,6 @@ import java.util.List;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
-
 public class Search_Controller extends General_Controller {
 
     @FXML
@@ -158,13 +157,7 @@ public class Search_Controller extends General_Controller {
 
     void handleHistory(String input) throws IOException {
         String line = "";
-        BufferedReader br = new BufferedReader(new FileReader(historyPath));
-        while ((line = br.readLine()) != null) {
-            if (!line.isEmpty()) {
-                historyList.add(line.trim());
-            }
-        }
-        br.close();
+        readFile(historyPath,historyList);
 
         int size = historyList.size();
         int MAX_LENGTH = 300;

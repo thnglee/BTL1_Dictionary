@@ -95,15 +95,7 @@ public class History_Controller extends General_Controller {
     public void initialize() {
         try {
             previousButton.setVisible(false);
-            BufferedReader bf = new BufferedReader(new FileReader(historyPath));
-            String line = "";
-            while ((line = bf.readLine()) != null) {
-                if (!line.equals(" ")) {
-                    wordList.add(line.trim());
-                }
-            }
-            bf.close();
-
+            readFile(historyPath,wordList);
             setWord(wordList,(currentPage - 1) * 10);
             int size = wordList.size();
             numberOfPages = (size % 10 == 0 ) ? size / 10 : size / 10 + 1;

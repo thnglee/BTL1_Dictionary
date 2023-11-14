@@ -89,14 +89,7 @@ public class Saved_Controller extends General_Controller {
     public void initialize() {
         try {
             previousButton.setVisible(false);
-            BufferedReader bf = new BufferedReader(new FileReader(savedPath));
-            String line = "";
-            while ((line = bf.readLine()) != null) {
-                if (!line.equals(" ")) {
-                    wordList.add(line.trim());
-                }
-            }
-            bf.close();
+            readFile(savedPath,wordList);
 
             Collections.sort(wordList);
 
