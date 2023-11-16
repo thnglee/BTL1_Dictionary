@@ -89,6 +89,28 @@ public class Game_funQuiz extends Games_Controller {
     @FXML
     private TextField yourAnswer;
 
+    @FXML
+    private final Image thinking = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/thinking.png").toExternalForm());
+
+    @FXML
+    private final Image correct_answer = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/correct_answer.png").toExternalForm());
+
+    @FXML
+    private final Image congrat = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/congrat.png").toExternalForm());
+
+    @FXML
+    private final Image show_answer = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/button_show-answer.png").toExternalForm());
+
+    @FXML
+    private final Image show_explanation = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/button_show-explanation.png").toExternalForm());
+
+    @FXML
+    private final Image wrong_answer = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/wrong-answer-bro.png").toExternalForm());
+
+    @FXML
+    private final Image try_again = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/funQuiz/tryagain.png").toExternalForm());
+
+
     private boolean isTrue = false;
 
     private boolean first;
@@ -106,6 +128,10 @@ public class Game_funQuiz extends Games_Controller {
     public void initialize() throws Exception {
         if (first) {
             quizzes.clear();
+            questions.clear();
+            answers.clear();
+            explanation.clear();
+            System.out.println(numberQuestion);
             Database_Connect.loadQuiz();
             questions = Database_Connect.questions;
             answers = Database_Connect.answers;
@@ -117,7 +143,7 @@ public class Game_funQuiz extends Games_Controller {
             for (int i = 0; i < numberQuestion; i++) {
                 Quiz quiz = new Quiz(i, questions.get(i), answers.get(i), explanations.get(i) == null ? "" : explanations.get(i));
                 quizzes.add(quiz);
-                //setImage(i);
+                setImage(i);
             }
 
             Random rand = new Random();
@@ -144,8 +170,12 @@ public class Game_funQuiz extends Games_Controller {
             score += 10;
             Score.setText(String.valueOf(score));
             nextStep.setText("NEXT");
-            status.setImage(quizzes.get(index).image);
-            System.out.println(true);
+            status.setImage(correct_answer);
+            showResult.setImage(show_explanation);
+        } else {
+            isTrue = false;
+            status.setImage(wrong_answer);
+            showResult.setImage(show_answer);
         }
     }
 
@@ -169,6 +199,10 @@ public class Game_funQuiz extends Games_Controller {
 
     @FXML
     void nextQuestion(MouseEvent event) {
+        submit.setVisible(true);
+        result.setVisible(false);
+        status.setImage(thinking);
+        yourAnswer.clear();
         quizzes.remove(index);
         questionLeft--;
         if (numberQuestion==0) {
@@ -184,6 +218,15 @@ public class Game_funQuiz extends Games_Controller {
 
     @FXML
     void onKeyTyped(KeyEvent event) {
+        status.setImage(thinking);
+    }
 
+    @FXML
+    void showRes(MouseEvent event) {
+        submit.setVisible(false);
+        result.setVisible(true);
+        status.setImage(quizzes.get(index).image);
+        answer.setText(quizzes.get(index).answer);
+        explanation.setText(quizzes.get(index).explanation);
     }
 }

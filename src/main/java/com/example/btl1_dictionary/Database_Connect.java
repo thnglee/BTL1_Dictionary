@@ -334,6 +334,10 @@ public class Database_Connect {
         }
     }
     public static void loadQuiz() throws SQLException {
+        questions.clear();
+        answers.clear();
+        explanations.clear();
+
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (Exception e) {
