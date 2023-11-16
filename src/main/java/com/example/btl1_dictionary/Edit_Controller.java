@@ -207,6 +207,8 @@ public class Edit_Controller extends General_Controller {
     @FXML
     void Deleted(MouseEvent event) throws IOException {
         String input = searchBar1.getText();
+        System.out.println(input);
+        System.out.println(input.length());
         Database_Connect.deleteWord(input);
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -220,6 +222,7 @@ public class Edit_Controller extends General_Controller {
         alert2.setHeaderText(null);
         alert2.setContentText("Bạn đã xóa từ thành công");
         alert2.showAndWait();
+        Trie.delete(input);
 
         historyList.removeIf(e -> e.equals(input));
         writeToFile(historyPath,historyList);

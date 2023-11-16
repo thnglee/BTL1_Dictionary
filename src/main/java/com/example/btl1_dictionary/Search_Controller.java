@@ -181,10 +181,12 @@ public class Search_Controller extends General_Controller {
         while ((line = br.readLine()) != null) {
             if (line.equals(input)) {
                 isSaved = true;
+            } else {
+                if (!line.isEmpty()) {
+                    savedList.add(line.trim());
+                }
             }
-            if (!line.isEmpty()) {
-                savedList.add(line.trim());
-            }
+
         }
         br.close();
 
