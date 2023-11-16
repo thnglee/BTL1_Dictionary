@@ -7,6 +7,7 @@ module com.example.btl1_dictionary {
     requires javafx.web;
     requires freetts;
     requires simplecaptcha;
+    requires java.ocr.api;
 
 
     opens com.example.btl1_dictionary to javafx.fxml;

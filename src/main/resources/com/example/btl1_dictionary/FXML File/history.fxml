@@ -246,9 +246,9 @@
                 <NumberAxis label="TIMES" side="LEFT" />
               </yAxis>
             </BarChart>
-            <TextField fx:id="today" editable="false" layoutX="768.0" layoutY="245.0" prefHeight="43.0" prefWidth="55.0">
+            <TextField fx:id="today" alignment="CENTER" editable="false" layoutX="755.0" layoutY="235.0" prefHeight="43.0" prefWidth="55.0" style="-fx-background-color: transparent;">
                <font>
-                  <Font name="Segoe UI Black" size="20.0" />
+                  <Font name="Segoe UI Black" size="30.0" />
                </font>
             </TextField>
             <TextField fx:id="schedule" layoutX="698.0" layoutY="82.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: transparent;">

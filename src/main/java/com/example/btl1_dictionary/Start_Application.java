@@ -131,8 +131,10 @@ public class Start_Application extends Application {
 
     public void switchToMain(Stage stage) throws IOException {
         try {
-            Parent fxmlLoader = FXMLLoader.load(getClass().getResource("FXML File/search.fxml"));
-            Scene scene = new Scene(fxmlLoader, 875, 650);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML File/search.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root, 875, 650);
             stage.setTitle("DICTIONARY");
             stage.setScene(scene);
             stage.show();

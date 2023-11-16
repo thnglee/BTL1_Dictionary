@@ -182,12 +182,11 @@ public class Saved_Controller extends General_Controller {
         }
 
         if (!res.equals(" ")) {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML File/search.fxml"));
-            Parent fxmlLoader = loader.load();
             ((Search_Controller) loader.getController()).getSearchBar().setText(res);
             ((Search_Controller) loader.getController()).search(event);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent fxmlLoader = loader.load();
             Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("DICTIONARY");
             stage.setScene(scene);

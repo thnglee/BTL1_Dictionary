@@ -1,5 +1,7 @@
 package com.example.btl1_dictionary;
 
+import javafx.scene.image.Image;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -161,6 +163,10 @@ public class Database_Connect {
 
     static List<String> suggestions = new ArrayList<>();
 
+    static List<String> questions = new ArrayList<>();
+    static List<String> answers = new ArrayList<>();
+    static List<String> explanations = new ArrayList<>();
+
     public static void lookUpDatabase(String input) throws Exception {
         StringBuilder res1 = new StringBuilder();
         StringBuilder res2 = new StringBuilder();
@@ -179,7 +185,7 @@ public class Database_Connect {
             if (connection1 != null) {
                 connection = connection1;
             }
-            String querry = String.format("SELECT * FROM av WHERE word LIKE '%s'", input);
+            String querry = String.format("SELECT * FROM av WHERE word = '%s'", input);
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement(querry);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -321,6 +327,35 @@ public class Database_Connect {
                 throw new RuntimeException(e);
             } finally {
                 connection.setAutoCommit(true);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void loadQuiz() throws SQLException {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try (Connection connection1 = DriverManager.getConnection(
+                "jdbc:sqlite:src/main/resources/com/example/btl1_dictionary/Database/funQuiz.db");) {
+            if (connection1 != null) {
+                connection = connection1;
+            }
+            String querry = "SELECT * FROM funQuiz";
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement(querry);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next() == true) {
+                String question = resultSet.getString(2);
+                questions.add(question);
+                String answer = resultSet.getString(3);
+                answers.add(answer);
+                String explaination = resultSet.getString(4);
+                explanations.add(explaination);
             }
 
         } catch (SQLException e) {

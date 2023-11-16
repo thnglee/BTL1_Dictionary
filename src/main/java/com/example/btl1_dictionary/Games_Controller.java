@@ -1,9 +1,26 @@
 package com.example.btl1_dictionary;
 
+import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class Games_Controller extends General_Controller {
+
+    @FXML
+    private ImageView funQuiz;
+
+    @FXML
+    private ImageView hangMan;
+
+    @FXML
+    void toGame(MouseEvent event) {
+        ImageView clicked = (ImageView) event.getSource();
+        if (clicked == funQuiz) {
+            switchScene("FXML File/game_funQuiz.fxml",event);
+        } else if (clicked == hangMan) {
+            switchScene("FXML File/game_hangMan.fxml",event);
+        }
+    }
 
     @Override
     public void Entered(MouseEvent event) {

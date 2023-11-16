@@ -2,12 +2,18 @@ package com.example.btl1_dictionary;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import com.asprise.ocr.Ocr;
+import javafx.stage.FileChooser;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -49,6 +55,9 @@ public class Google_Controller extends General_Controller {
 
     @FXML
     private ImageView micro;
+
+    @FXML
+    private ImageView upload;
 
     @FXML
     private final Image Micro_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button.png").toExternalForm());
@@ -193,11 +202,15 @@ public class Google_Controller extends General_Controller {
             isEnglish = false;
             langFrom.setImage(Vie);
             langTo.setImage(Eng);
+            upload.setVisible(false);
+            micro.setVisible(false);
         }
         else {
             isEnglish = true;
             langFrom.setImage(Eng);
             langTo.setImage(Vie);
+            upload.setVisible(true);
+            micro.setVisible(true);
         }
     }
 
@@ -207,6 +220,33 @@ public class Google_Controller extends General_Controller {
         output.clear();
         voice_from.setImage(null);
         voice_to.setImage(null);
+    }
+
+    @FXML
+    void UpLoadImage(MouseEvent event) {
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Hình ảnh", "*.png", "*.jpg", "*.jpeg"));
+
+            File selectedFile = fileChooser.showOpenDialog(null);
+
+            if (selectedFile != null) {
+                Ocr ocr = new Ocr();
+                ocr.startEngine("eng", Ocr.SPEED_FASTEST);
+                BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                String result = ocr.recognize(bufferedImage, Ocr.RECOGNIZE_TYPE_TEXT, Ocr.OUTPUT_FORMAT_PLAINTEXT);
+                input.setText(result);
+                ocr.stopEngine();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle(" File chosen is not valid");
+                alert.setHeaderText(null);
+                alert.setContentText("Tệp được chọn không hợp lệ");
+                alert.showAndWait();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

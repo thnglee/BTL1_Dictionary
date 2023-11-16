@@ -178,7 +178,7 @@ public class Edit_Controller extends General_Controller {
         Database_Connect.addWord(word,pronounce,html);
 
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(" Word Added Sucessfully");
+        alert.setTitle(" Word Added Successfully");
         alert.setHeaderText(null);
         alert.setContentText("Bạn đã thêm từ thành công");
         alert.showAndWait();
@@ -198,7 +198,7 @@ public class Edit_Controller extends General_Controller {
         Database_Connect.makeModify(word,htmlText);
 
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(" Word Modified Sucessfully");
+        alert.setTitle(" Word Modified Successfully");
         alert.setHeaderText(null);
         alert.setContentText("Bạn đã chỉnh sửa từ thành công");
         alert.showAndWait();
@@ -216,7 +216,7 @@ public class Edit_Controller extends General_Controller {
         alert.showAndWait();
 
         Alert alert2 = new Alert(AlertType.INFORMATION);
-        alert2.setTitle(" Word Deleted Sucessfully");
+        alert2.setTitle(" Word Deleted Successfully");
         alert2.setHeaderText(null);
         alert2.setContentText("Bạn đã xóa từ thành công");
         alert2.showAndWait();

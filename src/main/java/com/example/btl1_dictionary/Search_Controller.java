@@ -3,6 +3,7 @@ package com.example.btl1_dictionary;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -313,6 +314,4 @@ public class Search_Controller extends General_Controller {
             setSearch_Button(Search_Image);
         }
     }
-
-
 }

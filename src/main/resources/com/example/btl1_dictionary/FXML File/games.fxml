@@ -34,10 +34,12 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="Main_Box" prefHeight="650.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Games_Controller">
   <children>
@@ -73,6 +75,46 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
+            <TextField alignment="CENTER" editable="false" layoutX="175.0" layoutY="130.0" prefHeight="75.0" prefWidth="615.0" style="-fx-background-color: transparent;" text="WHICH GAME DO YOU WANT TO PLAY ?">
+               <font>
+                  <Font name="Segoe UI Black" size="29.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <ImageView fx:id="funQuiz" fitHeight="174.0" fitWidth="194.0" layoutX="176.0" layoutY="268.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/funQuiz_icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <TextField alignment="CENTER" layoutX="210.0" layoutY="440.0" prefHeight="43.0" prefWidth="106.0" style="-fx-background-color: transparent;" text="ĐỐ VUI">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <TextField alignment="CENTER" layoutX="601.0" layoutY="440.0" prefHeight="43.0" prefWidth="146.0" style="-fx-background-color: transparent;" text="HANGMAN">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <ImageView fx:id="hangMan" fitHeight="163.0" fitWidth="163.0" layoutX="586.0" layoutY="274.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/hangMan.jpeg" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
     </AnchorPane>
   </children>

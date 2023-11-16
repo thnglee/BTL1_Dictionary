@@ -81,7 +81,7 @@
                   <Image url="@../Image/text_from.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="input" blendMode="DARKEN" layoutX="260.0" layoutY="92.0" onKeyTyped="#onKeyTyped" prefHeight="140.0" prefWidth="526.0" promptText="Type here ....." style="-fx-background-color: transparent; -fx-border-width: 0;">
+            <TextArea fx:id="input" blendMode="DARKEN" layoutX="260.0" layoutY="92.0" onKeyTyped="#onKeyTyped" prefHeight="174.0" prefWidth="526.0" promptText="Type here ....." style="-fx-background-color: transparent; -fx-border-width: 0;">
                <font>
                   <Font size="20.0" />
                </font></TextArea>
@@ -90,7 +90,7 @@
                   <Image url="@../Image/text_to.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="output" blendMode="DARKEN" editable="false" layoutX="282.0" layoutY="399.0" prefHeight="149.0" prefWidth="500.0" style="-fx-background-color: transparent; -fx-border-width: 0;">
+            <TextArea fx:id="output" blendMode="DARKEN" editable="false" layoutX="282.0" layoutY="399.0" prefHeight="174.0" prefWidth="500.0" style="-fx-background-color: transparent; -fx-border-width: 0;">
                <font>
                   <Font size="20.0" />
                </font>
@@ -113,15 +113,15 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="voice_from" fitHeight="32.0" fitWidth="50.0" layoutX="313.0" layoutY="234.0" onMouseClicked="#Voice_gg" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="voice_from" fitHeight="32.0" fitWidth="50.0" layoutX="282.0" layoutY="291.0" onMouseClicked="#Voice_gg" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <ImageView fx:id="voice_to" fitHeight="32.0" fitWidth="50.0" layoutX="288.0" layoutY="544.0" onMouseClicked="#Voice_gg" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="voice_to" fitHeight="32.0" fitWidth="50.0" layoutX="282.0" layoutY="355.0" onMouseClicked="#Voice_gg" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <ImageView fx:id="micro" fitHeight="32.0" fitWidth="37.0" layoutX="266.0" layoutY="234.0" onMouseClicked="#speechToText" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="micro" fitHeight="32.0" fitWidth="37.0" layoutX="338.0" layoutY="292.0" onMouseClicked="#speechToText" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Micro_Button.png" />
                </image>
@@ -137,9 +137,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="clear" fitHeight="64.0" fitWidth="32.0" layoutX="743.0" layoutY="228.0" onMouseClicked="#Clear" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="clear" fitHeight="64.0" fitWidth="32.0" layoutX="766.0" layoutY="291.0" onMouseClicked="#Clear" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/Delete_Button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="upload" fitHeight="39.0" fitWidth="42.0" layoutX="387.0" layoutY="288.0" onMouseClicked="#UpLoadImage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/upload.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

@@ -110,9 +110,10 @@ public abstract class General_Controller {
     @FXML
     public final Image Edit_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Edit_button.png").toExternalForm());
 
-    String historyPath = "src/main/resources/com/example/btl1_dictionary/History.txt";
-    String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Frequency.txt";
-    String savedPath = "src/main/resources/com/example/btl1_dictionary/Saved.txt";
+    String historyPath = "src/main/resources/com/example/btl1_dictionary/Text File/History.txt";
+    String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Text File/Frequency.txt";
+    String savedPath = "src/main/resources/com/example/btl1_dictionary/Text File/Saved.txt";
+    String dictionaryPath = "src/main/resources/com/example/btl1_dictionary/Database/dict_hh.db";
 
     public void writeToFile(String path, List<String> list) throws IOException {
         FileWriter fw = new FileWriter(path);
@@ -174,4 +175,5 @@ public abstract class General_Controller {
 
     @FXML
     public abstract void Exited(MouseEvent event);
+
 }
