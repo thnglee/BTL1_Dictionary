@@ -59,12 +59,6 @@ public class Google_Controller extends General_Controller {
     @FXML
     private ImageView upload;
 
-    @FXML
-    private final Image Micro_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button.png").toExternalForm());
-
-    @FXML
-    private final Image Micro_On_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button2.png").toExternalForm());
-
     private boolean isEnglish = true;
 
     private static String ConnectToGGAPI( String input, String languageFrom, String languageTo) throws IOException, IOException {
@@ -144,7 +138,6 @@ public class Google_Controller extends General_Controller {
                         input.setText(finalResult.substring(35));
                     } else {
                         input.clear();
-                        input.setPromptText("Type here ...");
                     }
                 });
 

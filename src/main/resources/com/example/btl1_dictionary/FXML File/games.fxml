@@ -75,7 +75,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <TextField alignment="CENTER" editable="false" layoutX="175.0" layoutY="130.0" prefHeight="75.0" prefWidth="615.0" style="-fx-background-color: transparent;" text="WHICH GAME DO YOU WANT TO PLAY ?">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="175.0" layoutY="130.0" prefHeight="75.0" prefWidth="615.0" style="-fx-background-color: transparent;" text="WHICH GAME DO YOU WANT TO PLAY ?">
                <font>
                   <Font name="Segoe UI Black" size="29.0" />
                </font>
@@ -83,7 +83,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <ImageView fx:id="funQuiz" fitHeight="174.0" fitWidth="194.0" layoutX="176.0" layoutY="268.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="funQuiz" fitHeight="174.0" fitWidth="194.0" layoutX="139.0" layoutY="270.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/funQuiz_icon.png" />
                </image>
@@ -91,7 +91,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <TextField alignment="CENTER" layoutX="210.0" layoutY="440.0" prefHeight="43.0" prefWidth="106.0" style="-fx-background-color: transparent;" text="ĐỐ VUI">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="139.0" layoutY="443.0" prefHeight="43.0" prefWidth="174.0" style="-fx-background-color: transparent;" text="FUNNY QUIZ">
                <font>
                   <Font name="Segoe UI Black" size="20.0" />
                </font>
@@ -99,7 +99,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <TextField alignment="CENTER" layoutX="601.0" layoutY="440.0" prefHeight="43.0" prefWidth="146.0" style="-fx-background-color: transparent;" text="HANGMAN">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="409.0" layoutY="443.0" prefHeight="43.0" prefWidth="146.0" style="-fx-background-color: transparent;" text="HANGMAN">
                <font>
                   <Font name="Segoe UI Black" size="20.0" />
                </font>
@@ -107,9 +107,25 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <ImageView fx:id="hangMan" fitHeight="163.0" fitWidth="163.0" layoutX="593.0" layoutY="274.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="hangMan" fitHeight="163.0" fitWidth="163.0" layoutX="401.0" layoutY="275.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/hangMan.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="658.0" layoutY="443.0" prefHeight="43.0" prefWidth="146.0" style="-fx-background-color: transparent;" text="SPEAKING">
+               <font>
+                  <Font name="Segoe UI Black" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <ImageView fx:id="speaking" fitHeight="163.0" fitWidth="163.0" layoutX="650.0" layoutY="274.0" onMouseClicked="#toGame" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/speaking.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

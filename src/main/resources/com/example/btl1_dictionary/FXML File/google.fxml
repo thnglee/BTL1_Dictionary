@@ -81,7 +81,7 @@
                   <Image url="@../Image/text_from.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="input" blendMode="DARKEN" layoutX="260.0" layoutY="92.0" onKeyTyped="#onKeyTyped" prefHeight="174.0" prefWidth="526.0" promptText="Type here ....." style="-fx-background-color: transparent; -fx-border-width: 0;">
+            <TextArea fx:id="input" blendMode="DARKEN" focusTraversable="false" layoutX="260.0" layoutY="92.0" onKeyTyped="#onKeyTyped" prefHeight="174.0" prefWidth="526.0" promptText="Type here ....." style="-fx-background-color: transparent; -fx-border-width: 0;">
                <font>
                   <Font size="20.0" />
                </font></TextArea>
@@ -90,7 +90,7 @@
                   <Image url="@../Image/text_to.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="output" blendMode="DARKEN" editable="false" layoutX="282.0" layoutY="399.0" prefHeight="174.0" prefWidth="500.0" style="-fx-background-color: transparent; -fx-border-width: 0;">
+            <TextArea fx:id="output" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="282.0" layoutY="399.0" prefHeight="174.0" prefWidth="500.0" style="-fx-background-color: transparent; -fx-border-width: 0;">
                <font>
                   <Font size="20.0" />
                </font>

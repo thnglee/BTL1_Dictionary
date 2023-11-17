@@ -110,6 +110,13 @@ public abstract class General_Controller {
     @FXML
     public final Image Edit_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Edit_button.png").toExternalForm());
 
+    @FXML
+    public final Image Micro_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button.png").toExternalForm());
+
+    @FXML
+    public final Image Micro_On_Image = new Image(getClass().getResource("/com/example/btl1_dictionary/Image/Micro_Button2.png").toExternalForm());
+
+
     String historyPath = "src/main/resources/com/example/btl1_dictionary/Text File/History.txt";
     String frequencyPath = "src/main/resources/com/example/btl1_dictionary/Text File/Frequency.txt";
     String savedPath = "src/main/resources/com/example/btl1_dictionary/Text File/Saved.txt";

@@ -99,7 +99,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <TextField alignment="CENTER" editable="false" layoutX="199.0" layoutY="168.0" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: transparent;" text="THÊM">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="199.0" layoutY="168.0" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: transparent;" text="THÊM">
                <font>
                   <Font name="Segoe UI Black" size="20.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <TextField alignment="CENTER" editable="false" layoutX="416.0" layoutY="168.0" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="SỬA">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="416.0" layoutY="168.0" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="SỬA">
                <font>
                   <Font name="Segoe UI Black" size="20.0" />
                </font>
@@ -115,7 +115,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <TextField alignment="CENTER" editable="false" layoutX="638.0" layoutY="168.0" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="XÓA">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="638.0" layoutY="168.0" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="XÓA">
                <font>
                   <Font name="Segoe UI Black" size="20.0" />
                </font>
@@ -125,7 +125,7 @@
             </TextField>
             <AnchorPane fx:id="Add" layoutX="118.0" layoutY="230.0" prefHeight="400.0" prefWidth="722.0">
                <children>
-                  <HTMLEditor fx:id="addView" htmlText="&lt;h1&gt;#nhập từ&lt;/h1&gt;&lt;h3&gt;&lt;i&gt;/#nhập cách phát âm/&lt;/i&gt;&lt;/h3&gt;&lt;h2&gt;#nhập loại từ&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;#nhập nghĩa&lt;ul style=&quot;list-style-type:circle&quot;&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;#nhập loại từ&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="16.0" layoutY="14.0" prefHeight="342.0" prefWidth="513.0">
+                  <HTMLEditor fx:id="addView" focusTraversable="false" htmlText="&lt;h1&gt;#nhập từ&lt;/h1&gt;&lt;h3&gt;&lt;i&gt;/#nhập cách phát âm/&lt;/i&gt;&lt;/h3&gt;&lt;h2&gt;#nhập loại từ&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;#nhập nghĩa&lt;ul style=&quot;list-style-type:circle&quot;&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;#nhập loại từ&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;#nhập nghĩa&lt;ul&gt;&lt;li&gt;#nhập ví dụ tiếng Anh:&lt;i&gt;&amp;nbsp;#nhập ví dụ tiếng Việt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="16.0" layoutY="14.0" prefHeight="342.0" prefWidth="513.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -146,7 +146,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <TextField alignment="CENTER" editable="false" layoutX="567.0" layoutY="29.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="HƯỚNG DẪN">
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="567.0" layoutY="29.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="HƯỚNG DẪN">
                      <font>
                         <Font name="Segoe UI Black" size="15.0" />
                      </font>
@@ -154,7 +154,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </TextField>
-                  <TextField alignment="CENTER" editable="false" layoutX="567.0" layoutY="223.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="THÊM">
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="567.0" layoutY="223.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="THÊM">
                      <font>
                         <Font name="Segoe UI Black" size="15.0" />
                      </font>
@@ -174,7 +174,7 @@
             </AnchorPane>
             <AnchorPane fx:id="Modify" layoutX="118.0" layoutY="230.0" prefHeight="400.0" prefWidth="722.0" visible="false">
                <children>
-                  <TextField fx:id="searchBar" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="171.0">
+                  <TextField fx:id="searchBar" focusTraversable="false" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="171.0">
                      <font>
                         <Font name="Segoe UI Emoji" size="15.0" />
                      </font>
@@ -187,7 +187,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <TextField alignment="CENTER" editable="false" layoutX="559.0" layoutY="217.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="LƯU THAY ĐỔI">
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="559.0" layoutY="217.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="LƯU THAY ĐỔI">
                      <font>
                         <Font name="Segoe UI Black" size="15.0" />
                      </font>
@@ -195,7 +195,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </TextField>
-                  <TextField alignment="CENTER" editable="false" layoutX="559.0" layoutY="48.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="HƯỚNG DẪN">
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="559.0" layoutY="48.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="HƯỚNG DẪN">
                      <font>
                         <Font name="Segoe UI Black" size="15.0" />
                      </font>
@@ -211,7 +211,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <HTMLEditor fx:id="modifyView" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="40.0" prefHeight="330.0" prefWidth="514.0" />
+                  <HTMLEditor fx:id="modifyView" focusTraversable="false" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="40.0" prefHeight="330.0" prefWidth="514.0" />
                   <ImageView fx:id="search_button" fitHeight="34.0" fitWidth="36.0" layoutX="191.0" layoutY="6.0" onMouseClicked="#Search" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/Search_icon.png" />
@@ -232,7 +232,7 @@
             </AnchorPane>
             <AnchorPane fx:id="Delete" layoutX="118.0" layoutY="230.0" prefHeight="400.0" prefWidth="722.0" visible="false">
                <children>
-                  <TextField fx:id="searchBar1" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="171.0">
+                  <TextField fx:id="searchBar1" focusTraversable="false" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="171.0">
                      <font>
                         <Font name="Segoe UI Emoji" size="15.0" />
                      </font>
@@ -245,7 +245,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <TextField alignment="CENTER" editable="false" layoutX="559.0" layoutY="228.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="XÓA">
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="559.0" layoutY="228.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="XÓA">
                      <font>
                         <Font name="Segoe UI Black" size="15.0" />
                      </font>
@@ -253,7 +253,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </TextField>
-                  <TextField alignment="CENTER" editable="false" layoutX="559.0" layoutY="48.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="HƯỚNG DẪN">
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="559.0" layoutY="48.0" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="HƯỚNG DẪN">
                      <font>
                         <Font name="Segoe UI Black" size="15.0" />
                      </font>
@@ -269,7 +269,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <HTMLEditor fx:id="deleteView" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="40.0" prefHeight="330.0" prefWidth="514.0" />
+                  <HTMLEditor fx:id="deleteView" focusTraversable="false" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="40.0" prefHeight="330.0" prefWidth="514.0" />
                   <ImageView fx:id="search_button1" fitHeight="34.0" fitWidth="36.0" layoutX="191.0" layoutY="6.0" onMouseClicked="#Search" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/Search_icon.png" />

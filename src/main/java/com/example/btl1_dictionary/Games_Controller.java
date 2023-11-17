@@ -1,8 +1,13 @@
 package com.example.btl1_dictionary;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Games_Controller extends General_Controller {
 
@@ -13,13 +18,53 @@ public class Games_Controller extends General_Controller {
     private ImageView hangMan;
 
     @FXML
+    private ImageView speaking;
+
+    @FXML
+    private ImageView next_button;
+
+    @FXML
+    private ImageView score_button;
+
+    @FXML
+    private ImageView back_button;
+
+
+    @FXML
     void toGame(MouseEvent event) {
         ImageView clicked = (ImageView) event.getSource();
         if (clicked == funQuiz) {
             switchScene("FXML File/game_funQuiz.fxml",event);
         } else if (clicked == hangMan) {
             switchScene("FXML File/game_hangMan.fxml",event);
+        } else if (clicked == speaking) {
+            switchScene("FXML File/game_speaking.fxml",event);
         }
+    }
+
+    public String standardized(String input) {
+        input = input.trim();
+        input = input.toLowerCase();
+        if (input.startsWith("a ")) {
+            input = input.substring(2);
+        }
+        if (input.startsWith("the ")) {
+            input = input.substring(4);
+        }
+        input = input.replace(".","");
+        input = input.replace(",","");
+        input = input.replace("and","");
+        return input;
+    }
+
+    @FXML
+    void Back(MouseEvent event) {
+        switchScene("FXML File/games.fxml",event);
+    }
+
+    @FXML
+    void Next(MouseEvent event) {
+
     }
 
     @Override

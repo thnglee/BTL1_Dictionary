@@ -74,7 +74,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <TextField fx:id="word1" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="131.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word1" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="131.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -89,7 +89,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <TextField fx:id="word2" accessibleRole="BUTTON" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="182.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word2" accessibleRole="BUTTON" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="182.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -97,7 +97,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word3" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="234.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word3" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="234.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -105,7 +105,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word4" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="285.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word4" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="285.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -113,7 +113,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word5" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="337.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word5" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="337.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -121,7 +121,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word6" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="389.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word6" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="389.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -129,7 +129,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word7" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="440.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word7" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="440.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -137,7 +137,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word8" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="491.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word8" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="491.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -145,7 +145,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word9" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="543.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word9" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="543.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -153,7 +153,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="word10" blendMode="DARKEN" editable="false" layoutX="114.0" layoutY="595.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
+            <TextField fx:id="word10" blendMode="DARKEN" editable="false" focusTraversable="false" layoutX="114.0" layoutY="595.0" onMouseClicked="#attempted" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="42.0" prefWidth="275.0">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>
@@ -246,12 +246,12 @@
                 <NumberAxis label="TIMES" side="LEFT" />
               </yAxis>
             </BarChart>
-            <TextField fx:id="today" alignment="CENTER" editable="false" layoutX="755.0" layoutY="235.0" prefHeight="43.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+            <TextField fx:id="today" alignment="CENTER" editable="false" focusTraversable="false" layoutX="755.0" layoutY="235.0" prefHeight="43.0" prefWidth="55.0" style="-fx-background-color: transparent;">
                <font>
                   <Font name="Segoe UI Black" size="30.0" />
                </font>
             </TextField>
-            <TextField fx:id="schedule" layoutX="698.0" layoutY="82.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: transparent;">
+            <TextField fx:id="schedule" focusTraversable="false" layoutX="698.0" layoutY="82.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: transparent;">
                <font>
                   <Font name="Segoe UI Emoji" size="20.0" />
                </font>

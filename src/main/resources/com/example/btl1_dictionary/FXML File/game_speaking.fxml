@@ -33,7 +33,7 @@
 -->
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -41,10 +41,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="Main_Box" prefHeight="650.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Game_funQuiz">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+<VBox fx:id="Main_Box" prefHeight="650.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.btl1_dictionary.Game_speaking">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
+            <Label layoutX="85.0" layoutY="74.0" text="Type word here" />
             <ImageView fx:id="Background" fitHeight="650.0" fitWidth="875.0" onMouseClicked="#handleSceneSwitch" onMouseEntered="#Entered" onMouseExited="#Exited" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/main.png" />
@@ -74,30 +75,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ImageView>
-            <ImageView fitHeight="127.0" fitWidth="321.0" layoutX="389.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="127.0" fitWidth="321.0" layoutX="361.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/funQuiz/funnyQuiz.png" />
+                  <Image url="@../Image/speaking/speaking_banner.png" />
                </image>
             </ImageView>
-            <TextField fx:id="question" alignment="CENTER" editable="false" focusTraversable="false" layoutX="178.0" layoutY="201.0" prefHeight="59.0" prefWidth="663.0">
-               <font>
-                  <Font name="Segoe UI Black" size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </TextField>
-            <ImageView fx:id="status" fitHeight="227.0" fitWidth="275.0" layoutX="149.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/funQuiz/thinking.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="44.0" layoutX="127.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/funQuiz/question-mark.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="next_button" fitHeight="52.0" fitWidth="44.0" layoutX="782.0" layoutY="115.0" onMouseClicked="#Next" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="next_button" fitHeight="52.0" fitWidth="44.0" layoutX="782.0" layoutY="138.0" onMouseClicked="#Next" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/funQuiz/next-button.png" />
                </image>
@@ -110,73 +93,19 @@
                   <Image url="@../Image/funQuiz/score-button.png" />
                </image>
             </ImageView>
-            <TextField fx:id="Score" alignment="CENTER" focusTraversable="false" layoutX="178.0" layoutY="128.0" prefHeight="43.0" prefWidth="88.0" style="-fx-background-color: transparent;" text="0">
+            <TextField fx:id="total_score" alignment="CENTER" editable="false" focusTraversable="false" layoutX="178.0" layoutY="128.0" prefHeight="43.0" prefWidth="88.0" style="-fx-background-color: transparent;" text="0">
                <font>
                   <Font name="Segoe UI Black" size="30.0" />
                </font>
             </TextField>
-            <TextField fx:id="nextStep" alignment="CENTER" editable="false" focusTraversable="false" layoutX="762.0" layoutY="84.0" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: transparent;" text="SKIP">
+            <TextField fx:id="nextStep" alignment="CENTER" editable="false" focusTraversable="false" layoutX="762.0" layoutY="95.0" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: transparent;" text="NEXT">
                <font>
-                  <Font name="Segoe UI Black" size="15.0" />
+                  <Font name="Segoe UI Black" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <AnchorPane fx:id="result" layoutX="416.0" layoutY="287.0" prefHeight="338.0" prefWidth="426.0" visible="false">
-               <children>
-                  <ImageView fitHeight="76.0" fitWidth="127.0" layoutX="158.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/funQuiz/answer-icon.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="answer" alignment="CENTER" focusTraversable="false" layoutY="56.0" prefHeight="43.0" prefWidth="426.0" style="-fx-background-color: transparent;">
-                     <font>
-                        <Font name="Segoe UI Black" size="15.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="43.0" fitWidth="159.0" layoutX="142.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/funQuiz/explanation-icon.png" />
-                     </image>
-                  </ImageView>
-                  <TextArea fx:id="explanation" blendMode="DARKEN" focusTraversable="false" layoutX="4.0" layoutY="150.0" prefHeight="182.0" prefWidth="420.0" style="-fx-background-color: transparent;" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="submit" layoutX="416.0" layoutY="287.0" prefHeight="338.0" prefWidth="426.0">
-               <children>
-                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="128.0" layoutY="19.0" prefHeight="43.0" prefWidth="185.0" style="-fx-background-color: transparent;" text="YOUR ANSWER">
-                     <font>
-                        <Font name="Segoe UI Black" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </TextField>
-                  <TextField fx:id="yourAnswer" alignment="CENTER" focusTraversable="false" layoutX="56.0" layoutY="63.0" onKeyTyped="#onKeyTyped" prefHeight="44.0" prefWidth="314.0">
-                     <font>
-                        <Font name="Segoe UI Emoji" size="20.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fx:id="submit_button" fitHeight="55.0" fitWidth="55.0" layoutX="193.0" layoutY="122.0" onMouseClicked="#Submit" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/funQuiz/submit_button.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fx:id="showResult" fitHeight="55.0" fitWidth="256.0" layoutX="100.0" layoutY="269.0" onMouseClicked="#showRes" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/funQuiz/button_show-answer.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fx:id="check" fitHeight="64.0" fitWidth="186.0" layoutX="136.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </AnchorPane>
             <ImageView fx:id="back_button" fitHeight="43.0" fitWidth="55.0" layoutX="128.0" layoutY="582.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/funQuiz/back_button.png" />
@@ -193,20 +122,90 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="648.0" layoutY="84.0" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: transparent;" text="QUESTION">
+            <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="626.0" layoutY="95.0" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: transparent;" text="SENTENCE">
                <font>
-                  <Font name="Segoe UI Black" size="15.0" />
+                  <Font name="Segoe UI Black" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <TextField fx:id="Number" alignment="CENTER" focusTraversable="false" layoutX="644.0" layoutY="111.0" prefHeight="52.0" prefWidth="103.0" style="-fx-background-color: transparent;">
+            <TextField fx:id="Number" alignment="CENTER" editable="false" focusTraversable="false" layoutX="633.0" layoutY="134.0" prefHeight="52.0" prefWidth="103.0" style="-fx-background-color: transparent;">
                <font>
                   <Font name="Segoe UI Black" size="25.0" />
                </font>
             </TextField>
+            <AnchorPane fx:id="speakField" layoutX="128.0" layoutY="207.0" prefHeight="363.0" prefWidth="698.0">
+               <children>
+                  <ImageView fx:id="micro" fitHeight="140.0" fitWidth="165.0" layoutX="279.0" layoutY="112.0" onMouseClicked="#speakToMic" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../Image/Micro_Button.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="sentence" alignment="CENTER" editable="false" focusTraversable="false" layoutX="130.0" layoutY="25.0" prefHeight="52.0" prefWidth="438.0">
+                     <font>
+                        <Font name="Segoe UI Emoji" size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="isMicOn" alignment="CENTER" editable="false" focusTraversable="false" layoutX="74.0" layoutY="280.0" prefHeight="52.0" prefWidth="550.0" style="-fx-background-color: transparent;" text="PLEASE SPEAK FOLLOW SENTENCE ABOVE">
+                     <font>
+                        <Font name="Segoe UI Black" size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="resultField" layoutX="128.0" layoutY="207.0" prefHeight="363.0" prefWidth="698.0" visible="false">
+               <children>
+                  <ImageView fitHeight="74.0" fitWidth="469.0" layoutX="115.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/speaking/score_banner.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="score" alignment="CENTER" editable="false" focusTraversable="false" layoutX="305.0" layoutY="82.0" prefHeight="43.0" prefWidth="88.0" style="-fx-background-color: transparent;" text="0">
+                     <font>
+                        <Font name="Segoe UI Black" size="30.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fx:id="Rate" fitHeight="157.0" fitWidth="238.0" layoutX="434.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/speaking/excellent.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="originalSentence" editable="false" focusTraversable="false" layoutX="158.0" layoutY="162.0" prefHeight="52.0" prefWidth="222.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="16.0" layoutY="172.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: transparent;" text="SENTENCE">
+                     <font>
+                        <Font name="Segoe UI Black" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+                  <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="16.0" layoutY="277.0" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: transparent;" text="YOU SPEAK">
+                     <font>
+                        <Font name="Segoe UI Black" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+                  <TextField fx:id="youSpeak" editable="false" focusTraversable="false" layoutX="158.0" layoutY="267.0" prefHeight="52.0" prefWidth="222.0">
+                     <font>
+                        <Font name="Segoe UI Emoji" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
          </children>
-    </AnchorPane>
-  </children>
+      </AnchorPane>
+   </children>
 </VBox>

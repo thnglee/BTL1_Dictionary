@@ -1,0 +1,18 @@
+01,What’s up
+02,How’s it going
+03,What have you been doing
+04,Is that so
+05,How come
+06,What is your name
+07,How old are you
+08,How are you
+09,Where are you coming from
+10,Can I help you
+11Hey, how’s it going
+12,How do you do
+13,Which company do you work for
+14,Are you okay
+15,Where do you live
+16,How are things going with you.
+17,What are your hobbies.
+18,My brother lived his life with integrity against FIFA.
