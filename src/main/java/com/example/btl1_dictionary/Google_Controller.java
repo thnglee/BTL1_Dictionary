@@ -217,6 +217,7 @@ public class Google_Controller extends General_Controller {
 
     @FXML
     void UpLoadImage(MouseEvent event) {
+        Ocr.setUp();
         try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Hình ảnh", "*.png", "*.jpg", "*.jpeg"));

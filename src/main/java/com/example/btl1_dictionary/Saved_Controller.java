@@ -177,16 +177,15 @@ public class Saved_Controller extends General_Controller {
             res = word9.getText();
         } else if (attempted == word10) {
             res = word10.getText();
-        } else if (attempted == wordOTD) {
-            res = wordOTD.getText();
         }
 
         if (!res.equals(" ")) {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML File/search.fxml"));
+            Parent fxmlLoader = loader.load();
             ((Search_Controller) loader.getController()).getSearchBar().setText(res);
             ((Search_Controller) loader.getController()).search(event);
-            Parent fxmlLoader = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader, 875, 650);
             stage.setTitle("DICTIONARY");
             stage.setScene(scene);
