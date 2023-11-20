@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4efa770f-be30-42b6-8be2-ea11f0cca245" name="Changes" comment="Initial Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4efa770f-be30-42b6-8be2-ea11f0cca245" name="Changes" comment="hangman game added with not many additional features">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/FXML File/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/btl1_dictionary/game_hangMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/btl1_dictionary/game_hangMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/FXML File/game_hangMan.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/btl1_dictionary/FXML File/game_hangMan.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +32,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2Vv6ltxHtSj44YvqMKteVucJlzd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -190,15 +191,25 @@
       <option name="project" value="LOCAL" />
       <updated>1697077392755</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="hangman game added with not many additional features">
+      <option name="closed" value="true" />
+      <created>1700487612926</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700487612926</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/com/example/btl1_dictionary/Text File/Frequency.txt" />
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="hangman game added with not many additional features" />
+    <option name="LAST_COMMIT_MESSAGE" value="hangman game added with not many additional features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

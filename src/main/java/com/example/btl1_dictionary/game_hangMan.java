@@ -1,10 +1,12 @@
 package com.example.btl1_dictionary;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +32,12 @@ public class game_hangMan extends Games_Controller {
     @FXML
     private Label guessLabel;
 
+//
+//    @FXML
+//    private GridPane virtualKeyboardGridPane;
+
+
+
     private String[] words;
     private String selectedWord;
     private StringBuilder currentWord;
@@ -39,6 +47,10 @@ public class game_hangMan extends Games_Controller {
     public void initialize() {
         loadWordsFromFile(Path.of("src/main/resources/com/example/btl1_dictionary/Text File/wordsforHangman.txt"));
         resetGame();
+
+        // init keyboard element
+
+
     }
 
     private void loadWordsFromFile(Path filePath) {
@@ -84,7 +96,9 @@ public class game_hangMan extends Games_Controller {
         resetHangmanImage();
         resetLabels();
         incorrectGuessCount = 0;
+
     }
+
 
     private void resetHangmanImage() {
         hangmanImageView.setImage(new Image(getClass().getResource("/com/example/btl1_dictionary/Image/hangman/hangman0.png").toExternalForm()));
@@ -106,6 +120,10 @@ public class game_hangMan extends Games_Controller {
             Button button = (Button) event.getSource();
             String letter = button.getText().toUpperCase();
             processGuess(letter);
+//            if (!button.isDisable()) {
+//                processGuess(letter);
+//                button.setDisable(true);
+//            }
         }
     }
 
