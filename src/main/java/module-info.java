@@ -9,7 +9,6 @@ module com.example.btl1_dictionary {
     requires simplecaptcha;
     requires java.ocr.api;
 
-
     opens com.example.btl1_dictionary to javafx.fxml;
     exports com.example.btl1_dictionary;
 }
